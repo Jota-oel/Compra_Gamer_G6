@@ -1,123 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalog</title>
-</head>
-<body>
-  <main class="tienda">
-    <nav class="barra-superior" aria-label="Categorías de productos">
-      <form class="buscador" id="formulario-busqueda" role="search">
-        <input id="campo-busqueda" type="search" placeholder="Buscar" aria-label="Buscar productos" autocomplete="off" />
-        <button type="submit" aria-label="Buscar">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8" />
-            <path d="m16 16 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-          </svg>
-        </button>
-      </form>
-
-      <button class="boton-categoria" type="button" data-menu="portatiles" aria-expanded="false">Portátiles</button>
-      <button class="boton-categoria" type="button" data-menu="componentes" aria-expanded="false">Componentes</button>
-      <button class="boton-categoria" type="button" data-menu="perifericos" aria-expanded="false">Periféricos</button>
-      <button class="boton-categoria" type="button" data-menu="marcas" aria-expanded="false">Marcas</button>
-      <button class="boton-categoria" type="button" data-menu="precio" aria-expanded="false">Precio</button>
-
-      <div class="menu-desplegable" id="menu-desplegable" role="region" aria-label="Opciones de categoría"></div>
-    </nav>
-
-    <section class="catalogo" aria-label="Productos destacados">
-      <p class="mensaje-resultados" id="mensaje-resultados" aria-live="polite"></p>
-
-      <div class="carrusel">
-        <button class="control-carrusel anterior" id="anterior" type="button" aria-label="Ver productos anteriores">‹</button>
-
-        <div class="lista-productos" id="lista-productos" aria-label="Carrusel horizontal de productos">
-          <article class="tarjeta-producto" data-busqueda="teclado mecanico redragon kumara k552 hyperx perifericos">
-            <div class="imagen-producto"><div class="teclado" aria-label="Teclado RGB"></div></div>
-            <div class="cuerpo-producto">
-              <div class="marca"><span class="icono-marca">HX</span><span>Hyperx</span></div>
-              <h2 class="nombre-producto">Teclado Mecanico Redragon Kumara<br />K552 RGB Outemu Red ESP</h2>
-              <div class="fila-precio"><span class="precio-anterior">$ 115</span><span class="descuento">15%</span><strong class="precio-nuevo">$ 97,75</strong></div>
-              <button class="agregar-carrito" type="button">Agregar al carrito</button>
-            </div>
-          </article>
-
-          <article class="tarjeta-producto" data-busqueda="teclado mecanico redragon kumara k552 hyperx perifericos">
-            <div class="imagen-producto"><div class="teclado teclado--azul" aria-label="Teclado RGB"></div></div>
-            <div class="cuerpo-producto">
-              <div class="marca"><span class="icono-marca">HX</span><span>Hyperx</span></div>
-              <h2 class="nombre-producto">Teclado Mecanico Redragon Kumara<br />K552 RGB Outemu Red ESP</h2>
-              <div class="fila-precio"><span class="precio-anterior">$ 115</span><span class="descuento">15%</span><strong class="precio-nuevo">$ 97,75</strong></div>
-              <button class="agregar-carrito" type="button">Agregar al carrito</button>
-            </div>
-          </article>
-
-          <article class="tarjeta-producto" data-busqueda="teclado mecanico redragon kumara k552 hyperx perifericos">
-            <div class="imagen-producto"><div class="teclado teclado--rosa" aria-label="Teclado RGB"></div></div>
-            <div class="cuerpo-producto">
-              <div class="marca"><span class="icono-marca">HX</span><span>Hyperx</span></div>
-              <h2 class="nombre-producto">Teclado Mecanico Redragon Kumara<br />K552 RGB Outemu Red ESP</h2>
-              <div class="fila-precio"><span class="precio-anterior">$ 115</span><span class="descuento">15%</span><strong class="precio-nuevo">$ 97,75</strong></div>
-              <button class="agregar-carrito" type="button">Agregar al carrito</button>
-            </div>
-          </article>
-
-          <article class="tarjeta-producto" data-busqueda="teclado mecanico redragon kumara k552 hyperx perifericos">
-            <div class="imagen-producto"><div class="teclado teclado--verde" aria-label="Teclado RGB"></div></div>
-            <div class="cuerpo-producto">
-              <div class="marca"><span class="icono-marca">HX</span><span>Hyperx</span></div>
-              <h2 class="nombre-producto">Teclado Mecanico Redragon Kumara<br />K552 RGB Outemu Red ESP</h2>
-              <div class="fila-precio"><span class="precio-anterior">$ 115</span><span class="descuento">15%</span><strong class="precio-nuevo">$ 97,75</strong></div>
-              <button class="agregar-carrito" type="button">Agregar al carrito</button>
-            </div>
-          </article>
-
-          <article class="tarjeta-producto" data-busqueda="teclado mecanico redragon kumara k552 hyperx perifericos">
-            <div class="imagen-producto"><div class="teclado teclado--naranja" aria-label="Teclado RGB"></div></div>
-            <div class="cuerpo-producto">
-              <div class="marca"><span class="icono-marca">HX</span><span>Hyperx</span></div>
-              <h2 class="nombre-producto">Teclado Mecanico Redragon Kumara<br />K552 RGB Outemu Red ESP</h2>
-              <div class="fila-precio"><span class="precio-anterior">$ 115</span><span class="descuento">15%</span><strong class="precio-nuevo">$ 97,75</strong></div>
-              <button class="agregar-carrito" type="button">Agregar al carrito</button>
-            </div>
-          </article>
-
-          <article class="tarjeta-producto" data-busqueda="teclado mecanico redragon kumara k552 hyperx perifericos">
-            <div class="imagen-producto"><div class="teclado teclado--azul" aria-label="Teclado RGB"></div></div>
-            <div class="cuerpo-producto">
-              <div class="marca"><span class="icono-marca">HX</span><span>Hyperx</span></div>
-              <h2 class="nombre-producto">Teclado Mecanico Redragon Kumara<br />K552 RGB Outemu Red ESP</h2>
-              <div class="fila-precio"><span class="precio-anterior">$ 115</span><span class="descuento">15%</span><strong class="precio-nuevo">$ 97,75</strong></div>
-              <button class="agregar-carrito" type="button">Agregar al carrito</button>
-            </div>
-          </article>
-
-          <article class="tarjeta-producto" data-busqueda="teclado mecanico redragon kumara k552 hyperx perifericos">
-            <div class="imagen-producto"><div class="teclado teclado--rosa" aria-label="Teclado RGB"></div></div>
-            <div class="cuerpo-producto">
-              <div class="marca"><span class="icono-marca">HX</span><span>Hyperx</span></div>
-              <h2 class="nombre-producto">Teclado Mecanico Redragon Kumara<br />K552 RGB Outemu Red ESP</h2>
-              <div class="fila-precio"><span class="precio-anterior">$ 115</span><span class="descuento">15%</span><strong class="precio-nuevo">$ 97,75</strong></div>
-              <button class="agregar-carrito" type="button">Agregar al carrito</button>
-            </div>
-          </article>
-
-          <article class="tarjeta-producto" data-busqueda="teclado mecanico redragon kumara k552 hyperx perifericos">
-            <div class="imagen-producto"><div class="teclado teclado--verde" aria-label="Teclado RGB"></div></div>
-            <div class="cuerpo-producto">
-              <div class="marca"><span class="icono-marca">HX</span><span>Hyperx</span></div>
-              <h2 class="nombre-producto">Teclado Mecanico Redragon Kumara<br />K552 RGB Outemu Red ESP</h2>
-              <div class="fila-precio"><span class="precio-anterior">$ 115</span><span class="descuento">15%</span><strong class="precio-nuevo">$ 97,75</strong></div>
-              <button class="agregar-carrito" type="button">Agregar al carrito</button>
-            </div>
-          </article>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gestión de Operadores y Usuarios</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>Product Managment</h1>
+          <p>
+            Manage the catalog, stock, and costs of components available for
+            building. Listed products include description, cost price, and
+            available quantity.
+          </p>
         </div>
 
-        <button class="control-carrusel siguiente" id="siguiente" type="button" aria-label="Ver productos siguientes">›</button>
+        <button>+ CREATE NEW PRODUCT</button>
+      </header>
+
+      <section>
+        <article>
+          <p>TOTAL PRODUCTS</p>
+          <strong>128</strong>
+          <p>Components and accesories in catalog</p>
+        </article>
+
+        <article>
+          <p>TOTAL INVENTORY COST</p>
+          <strong>$128.4k</strong>
+          <p>Total cost of products in stock</p>
+        </article>
+
+        <article>
+          <p>AVAILABLE UNITS</p>
+          <strong>2,184</strong>
+          <p>Units ready for assembly and sale</p>
+        </article>
+
+        <article>
+          <p>LOW STOCK PRODUCTS</p>
+          <strong>12</strong>
+          <p>Products with less than 5 units in stock</p>
+        </article>
+      </section>
+
+      <div>
+        <aside>
+          <h2>Search and Filters</h2>
+
+          <input type="search" placeholder="Search product..." />
+
+          <div>
+            <label>Category</label>
+            <select>
+              <option>All categories</option>
+              <option>GPUS</option>
+              <option>CPUS</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Stock Status</label>
+            <select>
+              <option>All Statues</option>
+              <option>Sold</option>
+              <option>Ready</option>
+              <option>Crafting</option>
+            </select>
+          </div>
+
+          <hr />
+        </aside>
+
+        <section>
+          <table>
+            <thead>
+              <tr>
+                <th>PRODUCT</th>
+                <th>ID</th>
+                <th>DESCRIPTION</th>
+                <th>COST</th>
+                <th>STOCK</th>
+                <th>ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Ryzen 9 7950X</strong><br />AMD 16-core processor for
+                  Gaming and rendering.
+                </td>
+                <td>#PRD-1042</td>
+                <td>16 cores / 32 threads</td>
+                <td>$1,240/td></td>
+                <td>18 u.</td>
+                <td><button>✎</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>GeForce RTX 4080</strong><br />NVIDIA graphics card
+                  with DLSS 4 and ray tracing.
+                </td>
+
+                <td>#PRD-1187</td>
+                <td>16 GB GDDR6X</td>
+                <td>$1,980</td>
+                <td>7 u.</td>
+                <td><button>✎</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <footer>
+            <span>Showing 6 of 128 products in catalog</span>
+            <button>Previous</button>
+            <button>Next</button>
+          </footer>
+        </section>
       </div>
-    </section>
-  </main>
-</body>
+    </main>
+  </body>
 </html>
