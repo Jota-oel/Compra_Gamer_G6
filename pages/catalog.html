@@ -9,167 +9,114 @@
     <main>
       <header>
         <div>
-          <h1>Gestión de Operadores y Usuarios</h1>
+          <h1>Product Managment</h1>
           <p>
-            Administra los accesos del personal de armado de computadoras. Los
-            gestores utilizan el inventario centralizado para crear las
-            configuraciones definitivas Gaming y Office.
+            Manage the catalog, stock, and costs of components available for
+            building. Listed products include description, cost price, and
+            available quantity.
           </p>
         </div>
 
-        <button>+ CREAR NUEVO OPERADOR</button>
+        <button>+ CREATE NEW PRODUCT</button>
       </header>
 
       <section>
         <article>
-          <p>TOTAL USUARIOS ACTIVOS</p>
-          <strong>42</strong>
-          <p>Administradores y constructores autorizados</p>
+          <p>TOTAL PRODUCTS</p>
+          <strong>128</strong>
+          <p>Components and accesories in catalog</p>
         </article>
 
         <article>
-          <p>SISTEMAS GAMING DISEÑADOS</p>
-          <strong>148</strong>
-          <p>Equipos completados por el equipo este mes</p>
+          <p>TOTAL INVENTORY COST</p>
+          <strong>$128.4k</strong>
+          <p>Total cost of products in stock</p>
         </article>
 
         <article>
-          <p>WORKSTATIONS CONFIGURADAS</p>
-          <strong>92</strong>
-          <p>Rigs profesionales validados sin cuellos de botella</p>
+          <p>AVAILABLE UNITS</p>
+          <strong>2,184</strong>
+          <p>Units ready for assembly and sale</p>
         </article>
 
         <article>
-          <p>DISPONIBILIDAD DEL CATÁLOGO</p>
-          <strong>98.4%</strong>
-          <p>Inventario validado para armados internos</p>
+          <p>LOW STOCK PRODUCTS</p>
+          <strong>12</strong>
+          <p>Products with less than 5 units in stock</p>
         </article>
       </section>
 
       <div>
         <aside>
-          <h2>Búsqueda y Filtros</h2>
+          <h2>Search and Filters</h2>
 
-          <input type="search" placeholder="Buscar operador" />
+          <input type="search" placeholder="Search product..." />
 
           <div>
-            <label>Filtrar por Rol</label>
+            <label>Category</label>
             <select>
-              <option>Todos los Roles</option>
-              <option>Administrador</option>
-              <option>Gestor / Constructor</option>
+              <option>All categories</option>
+              <option>GPUS</option>
+              <option>CPUS</option>
             </select>
           </div>
 
           <div>
-            <label>Especialidad de Diseño</label>
+            <label>Stock Status</label>
             <select>
-              <option>Todas las Divisiones</option>
-              <option>Gaming</option>
-              <option>Office</option>
-              <option>Global</option>
+              <option>All Statues</option>
+              <option>Sold</option>
+              <option>Ready</option>
+              <option>Crafting</option>
             </select>
           </div>
 
           <hr />
-
-          <h2>Jerarquía de Roles</h2>
-
-          <article>
-            <h3>ADMINISTRADOR</h3>
-            <p>
-              Controla el flujo de inventario, aprobación de hardware, gestión
-              de credenciales y asignación de presupuestos.
-            </p>
-          </article>
-
-          <article>
-            <h3>GESTOR / CONSTRUCTOR</h3>
-            <p>
-              Acceso para ensamblar sistemas Gaming y Office. Consume inventario
-              interno para validación de compatibilidad automatizada.
-            </p>
-          </article>
         </aside>
 
         <section>
           <table>
             <thead>
               <tr>
-                <th>USUARIO / OPERADOR</th>
-                <th>ROL Y DIVISIÓN</th>
-                <th>HISTORIAL</th>
-                <th>ÚLTIMO ACCESO</th>
-                <th>ESTADO</th>
-                <th>ACCIONES</th>
+                <th>PRODUCT</th>
+                <th>ID</th>
+                <th>DESCRIPTION</th>
+                <th>COST</th>
+                <th>STOCK</th>
+                <th>ACTIONS</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>
-                  <strong>Carlos Mendoza</strong><br />c.mendoza@techcore.com
+                  <strong>Ryzen 9 7950X</strong><br />AMD 16-core processor for
+                  Gaming and rendering.
                 </td>
-                <td>ADMINISTRADOR (Global)</td>
-                <td>0<br />Equipos armados</td>
-                <td>Hace 4 minutos</td>
-                <td>ACTIVO</td>
-                <td><button>Editar</button> <button>Configurar</button></td>
+                <td>#PRD-1042</td>
+                <td>16 cores / 32 threads</td>
+                <td>$1,240/td></td>
+                <td>18 u.</td>
+                <td><button>✎</button></td>
               </tr>
               <tr>
                 <td>
-                  <strong>Sofía Velasquez</strong><br />s.velasquez@techcore.com
+                  <strong>GeForce RTX 4080</strong><br />NVIDIA graphics card
+                  with DLSS 4 and ray tracing.
                 </td>
-                <td>GESTOR/USER (Gaming)</td>
-                <td>47<br />Equipos armados</td>
-                <td>Hace 2 horas</td>
-                <td>ACTIVO</td>
-                <td><button>Editar</button> <button>Configurar</button></td>
-              </tr>
-              <tr>
-                <td><strong>Mateo Rivas</strong><br />m.rivas@techcore.com</td>
-                <td>GESTOR/USER (Office)</td>
-                <td>38<br />Equipos armados</td>
-                <td>Hace 1 día</td>
-                <td>ACTIVO</td>
-                <td><button>Editar</button> <button>Configurar</button></td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Alejandro Thorne</strong><br />a.thorne@techcore.com
-                </td>
-                <td>GESTOR/USER (Gaming)</td>
-                <td>29<br />Equipos armados</td>
-                <td>Hace 5 días</td>
-                <td>INACTIVO</td>
-                <td><button>Editar</button> <button>Configurar</button></td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Elena Rostova</strong><br />e.rostova@techcore.com
-                </td>
-                <td>ADMINISTRADOR (Global)</td>
-                <td>4<br />Equipos armados</td>
-                <td>Ayer, 18:42</td>
-                <td>ACTIVO</td>
-                <td><button>Editar</button> <button>Configurar</button></td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Rubén Duarte</strong><br />r.duarte@techcore.com
-                </td>
-                <td>GESTOR/USER (Office)</td>
-                <td>12<br />Equipos armados</td>
-                <td>Hace 2 semanas</td>
-                <td>SUSPENDIDO</td>
-                <td><button>Editar</button> <button>Configurar</button></td>
+
+                <td>#PRD-1187</td>
+                <td>16 GB GDDR6X</td>
+                <td>$1,980</td>
+                <td>7 u.</td>
+                <td><button>✎</button></td>
               </tr>
             </tbody>
           </table>
 
           <footer>
-            <span>Mostrando 6 de 42 operadores autorizados</span>
-            <button>Anterior</button>
-            <button>Siguiente</button>
+            <span>Showing 6 of 128 products in catalog</span>
+            <button>Previous</button>
+            <button>Next</button>
           </footer>
         </section>
       </div>
