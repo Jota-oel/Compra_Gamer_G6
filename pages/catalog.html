@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gestión de Operadores y Usuarios</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>Product Managment</h1>
+          <p>
+            Manage the catalog, stock, and costs of components available for
+            building. Listed products include description, cost price, and
+            available quantity.
+          </p>
+        </div>
+
+        <button>+ CREATE NEW PRODUCT</button>
+      </header>
+
+      <section>
+        <article>
+          <p>TOTAL PRODUCTS</p>
+          <strong>128</strong>
+          <p>Components and accesories in catalog</p>
+        </article>
+
+        <article>
+          <p>TOTAL INVENTORY COST</p>
+          <strong>$128.4k</strong>
+          <p>Total cost of products in stock</p>
+        </article>
+
+        <article>
+          <p>AVAILABLE UNITS</p>
+          <strong>2,184</strong>
+          <p>Units ready for assembly and sale</p>
+        </article>
+
+        <article>
+          <p>LOW STOCK PRODUCTS</p>
+          <strong>12</strong>
+          <p>Products with less than 5 units in stock</p>
+        </article>
+      </section>
+
+      <div>
+        <aside>
+          <h2>Search and Filters</h2>
+
+          <input type="search" placeholder="Search product..." />
+
+          <div>
+            <label>Category</label>
+            <select>
+              <option>All categories</option>
+              <option>GPUS</option>
+              <option>CPUS</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Stock Status</label>
+            <select>
+              <option>All Statues</option>
+              <option>Sold</option>
+              <option>Ready</option>
+              <option>Crafting</option>
+            </select>
+          </div>
+
+          <hr />
+        </aside>
+
+        <section>
+          <table>
+            <thead>
+              <tr>
+                <th>PRODUCT</th>
+                <th>ID</th>
+                <th>DESCRIPTION</th>
+                <th>COST</th>
+                <th>STOCK</th>
+                <th>ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Ryzen 9 7950X</strong><br />AMD 16-core processor for
+                  Gaming and rendering.
+                </td>
+                <td>#PRD-1042</td>
+                <td>16 cores / 32 threads</td>
+                <td>$1,240/td></td>
+                <td>18 u.</td>
+                <td><button>✎</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>GeForce RTX 4080</strong><br />NVIDIA graphics card
+                  with DLSS 4 and ray tracing.
+                </td>
+
+                <td>#PRD-1187</td>
+                <td>16 GB GDDR6X</td>
+                <td>$1,980</td>
+                <td>7 u.</td>
+                <td><button>✎</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <footer>
+            <span>Showing 6 of 128 products in catalog</span>
+            <button>Previous</button>
+            <button>Next</button>
+          </footer>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
