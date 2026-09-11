@@ -1,349 +1,178 @@
 <!doctype html>
-<html lang="ESP">
+<html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Catalogo</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gestión de Operadores y Usuarios</title>
   </head>
   <body>
-    <main class="tienda">
-      <nav class="barra-superior" aria-label="Categorías de productos">
-        <form class="buscador" id="formulario-busqueda" role="search">
-          <input
-            id="campo-busqueda"
-            type="search"
-            placeholder="Buscar"
-            aria-label="Buscar productos"
-            autocomplete="off"
-          />
-          <button type="submit" aria-label="Buscar">
-            <svg
-              width="19"
-              height="19"
-              viewBox="0 0 24 24"
-              fill="none"
-              aria-hidden="true"
-            >
-              <circle
-                cx="11"
-                cy="11"
-                r="6.5"
-                stroke="currentColor"
-                stroke-width="1.8"
-              />
-              <path
-                d="m16 16 4 4"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-              />
-            </svg>
-          </button>
-        </form>
+    <main>
+      <header>
+        <div>
+          <h1>Gestión de Operadores y Usuarios</h1>
+          <p>
+            Administra los accesos del personal de armado de computadoras. Los
+            gestores utilizan el inventario centralizado para crear las
+            configuraciones definitivas Gaming y Office.
+          </p>
+        </div>
 
-        <button
-          class="boton-categoria"
-          type="button"
-          data-menu="portatiles"
-          aria-expanded="false"
-        >
-          Portátiles
-        </button>
-        <button
-          class="boton-categoria"
-          type="button"
-          data-menu="componentes"
-          aria-expanded="false"
-        >
-          Componentes
-        </button>
-        <button
-          class="boton-categoria"
-          type="button"
-          data-menu="perifericos"
-          aria-expanded="false"
-        >
-          Periféricos
-        </button>
-        <button
-          class="boton-categoria"
-          type="button"
-          data-menu="marcas"
-          aria-expanded="false"
-        >
-          Marcas
-        </button>
-        <button
-          class="boton-categoria"
-          type="button"
-          data-menu="precio"
-          aria-expanded="false"
-        >
-          Precio
-        </button>
+        <button>+ CREAR NUEVO OPERADOR</button>
+      </header>
 
-        <div
-          class="menu-desplegable"
-          id="menu-desplegable"
-          role="region"
-          aria-label="Opciones de categoría"
-        ></div>
-      </nav>
+      <section>
+        <article>
+          <p>TOTAL USUARIOS ACTIVOS</p>
+          <strong>42</strong>
+          <p>Administradores y constructores autorizados</p>
+        </article>
 
-      <section class="catalogo" aria-label="Productos destacados">
-        <p
-          class="mensaje-resultados"
-          id="mensaje-resultados"
-          aria-live="polite"
-        ></p>
+        <article>
+          <p>SISTEMAS GAMING DISEÑADOS</p>
+          <strong>148</strong>
+          <p>Equipos completados por el equipo este mes</p>
+        </article>
 
-        <div class="carrusel">
-          <button
-            class="control-carrusel anterior"
-            id="anterior"
-            type="button"
-            aria-label="Ver productos anteriores"
-          >
-            ‹
-          </button>
+        <article>
+          <p>WORKSTATIONS CONFIGURADAS</p>
+          <strong>92</strong>
+          <p>Rigs profesionales validados sin cuellos de botella</p>
+        </article>
 
-          <div
-            class="lista-productos"
-            id="lista-productos"
-            aria-label="Carrusel horizontal de productos"
-          >
-            <article
-              class="tarjeta-producto"
-              data-busqueda="teclado mecanico redragon kumara k552 hyperx perifericos"
-            >
-              <div class="imagen-producto">
-                <div class="teclado" aria-label="Teclado RGB"></div>
-              </div>
-              <div class="cuerpo-producto">
-                <div class="marca">
-                  <span class="icono-marca">HX</span><span>Hyperx</span>
-                </div>
-                <h2 class="nombre-producto">
-                  Teclado Mecanico Redragon Kumara<br />K552 RGB Outemu Red ESP
-                </h2>
-                <div class="fila-precio">
-                  <span class="precio-anterior">$ 115</span
-                  ><span class="descuento">15%</span
-                  ><strong class="precio-nuevo">$ 97,75</strong>
-                </div>
-                <button class="agregar-carrito" type="button">
-                  Agregar al carrito
-                </button>
-              </div>
-            </article>
+        <article>
+          <p>DISPONIBILIDAD DEL CATÁLOGO</p>
+          <strong>98.4%</strong>
+          <p>Inventario validado para armados internos</p>
+        </article>
+      </section>
 
-            <article
-              class="tarjeta-producto"
-              data-busqueda="teclado mecanico redragon kumara k552 hyperx perifericos"
-            >
-              <div class="imagen-producto">
-                <div
-                  class="teclado teclado--azul"
-                  aria-label="Teclado RGB"
-                ></div>
-              </div>
-              <div class="cuerpo-producto">
-                <div class="marca">
-                  <span class="icono-marca">HX</span><span>Hyperx</span>
-                </div>
-                <h2 class="nombre-producto">
-                  Teclado Mecanico Redragon Kumara<br />K552 RGB Outemu Red ESP
-                </h2>
-                <div class="fila-precio">
-                  <span class="precio-anterior">$ 115</span
-                  ><span class="descuento">15%</span
-                  ><strong class="precio-nuevo">$ 97,75</strong>
-                </div>
-                <button class="agregar-carrito" type="button">
-                  Agregar al carrito
-                </button>
-              </div>
-            </article>
+      <div>
+        <aside>
+          <h2>Búsqueda y Filtros</h2>
 
-            <article
-              class="tarjeta-producto"
-              data-busqueda="teclado mecanico redragon kumara k552 hyperx perifericos"
-            >
-              <div class="imagen-producto">
-                <div
-                  class="teclado teclado--rosa"
-                  aria-label="Teclado RGB"
-                ></div>
-              </div>
-              <div class="cuerpo-producto">
-                <div class="marca">
-                  <span class="icono-marca">HX</span><span>Hyperx</span>
-                </div>
-                <h2 class="nombre-producto">
-                  Teclado Mecanico Redragon Kumara<br />K552 RGB Outemu Red ESP
-                </h2>
-                <div class="fila-precio">
-                  <span class="precio-anterior">$ 115</span
-                  ><span class="descuento">15%</span
-                  ><strong class="precio-nuevo">$ 97,75</strong>
-                </div>
-                <button class="agregar-carrito" type="button">
-                  Agregar al carrito
-                </button>
-              </div>
-            </article>
+          <input type="search" placeholder="Buscar operador" />
 
-            <article
-              class="tarjeta-producto"
-              data-busqueda="teclado mecanico redragon kumara k552 hyperx perifericos"
-            >
-              <div class="imagen-producto">
-                <div
-                  class="teclado teclado--verde"
-                  aria-label="Teclado RGB"
-                ></div>
-              </div>
-              <div class="cuerpo-producto">
-                <div class="marca">
-                  <span class="icono-marca">HX</span><span>Hyperx</span>
-                </div>
-                <h2 class="nombre-producto">
-                  Teclado Mecanico Redragon Kumara<br />K552 RGB Outemu Red ESP
-                </h2>
-                <div class="fila-precio">
-                  <span class="precio-anterior">$ 115</span
-                  ><span class="descuento">15%</span
-                  ><strong class="precio-nuevo">$ 97,75</strong>
-                </div>
-                <button class="agregar-carrito" type="button">
-                  Agregar al carrito
-                </button>
-              </div>
-            </article>
-
-            <article
-              class="tarjeta-producto"
-              data-busqueda="teclado mecanico redragon kumara k552 hyperx perifericos"
-            >
-              <div class="imagen-producto">
-                <div
-                  class="teclado teclado--naranja"
-                  aria-label="Teclado RGB"
-                ></div>
-              </div>
-              <div class="cuerpo-producto">
-                <div class="marca">
-                  <span class="icono-marca">HX</span><span>Hyperx</span>
-                </div>
-                <h2 class="nombre-producto">
-                  Teclado Mecanico Redragon Kumara<br />K552 RGB Outemu Red ESP
-                </h2>
-                <div class="fila-precio">
-                  <span class="precio-anterior">$ 115</span
-                  ><span class="descuento">15%</span
-                  ><strong class="precio-nuevo">$ 97,75</strong>
-                </div>
-                <button class="agregar-carrito" type="button">
-                  Agregar al carrito
-                </button>
-              </div>
-            </article>
-
-            <article
-              class="tarjeta-producto"
-              data-busqueda="teclado mecanico redragon kumara k552 hyperx perifericos"
-            >
-              <div class="imagen-producto">
-                <div
-                  class="teclado teclado--azul"
-                  aria-label="Teclado RGB"
-                ></div>
-              </div>
-              <div class="cuerpo-producto">
-                <div class="marca">
-                  <span class="icono-marca">HX</span><span>Hyperx</span>
-                </div>
-                <h2 class="nombre-producto">
-                  Teclado Mecanico Redragon Kumara<br />K552 RGB Outemu Red ESP
-                </h2>
-                <div class="fila-precio">
-                  <span class="precio-anterior">$ 115</span
-                  ><span class="descuento">15%</span
-                  ><strong class="precio-nuevo">$ 97,75</strong>
-                </div>
-                <button class="agregar-carrito" type="button">
-                  Agregar al carrito
-                </button>
-              </div>
-            </article>
-
-            <article
-              class="tarjeta-producto"
-              data-busqueda="teclado mecanico redragon kumara k552 hyperx perifericos"
-            >
-              <div class="imagen-producto">
-                <div
-                  class="teclado teclado--rosa"
-                  aria-label="Teclado RGB"
-                ></div>
-              </div>
-              <div class="cuerpo-producto">
-                <div class="marca">
-                  <span class="icono-marca">HX</span><span>Hyperx</span>
-                </div>
-                <h2 class="nombre-producto">
-                  Teclado Mecanico Redragon Kumara<br />K552 RGB Outemu Red ESP
-                </h2>
-                <div class="fila-precio">
-                  <span class="precio-anterior">$ 115</span
-                  ><span class="descuento">15%</span
-                  ><strong class="precio-nuevo">$ 97,75</strong>
-                </div>
-                <button class="agregar-carrito" type="button">
-                  Agregar al carrito
-                </button>
-              </div>
-            </article>
-
-            <article
-              class="tarjeta-producto"
-              data-busqueda="teclado mecanico redragon kumara k552 hyperx perifericos"
-            >
-              <div class="imagen-producto">
-                <div
-                  class="teclado teclado--verde"
-                  aria-label="Teclado RGB"
-                ></div>
-              </div>
-              <div class="cuerpo-producto">
-                <div class="marca">
-                  <span class="icono-marca">HX</span><span>Hyperx</span>
-                </div>
-                <h2 class="nombre-producto">
-                  Teclado Mecanico Redragon Kumara<br />K552 RGB Outemu Red ESP
-                </h2>
-                <div class="fila-precio">
-                  <span class="precio-anterior">$ 115</span
-                  ><span class="descuento">15%</span
-                  ><strong class="precio-nuevo">$ 97,75</strong>
-                </div>
-                <button class="agregar-carrito" type="button">
-                  Agregar al carrito
-                </button>
-              </div>
-            </article>
+          <div>
+            <label>Filtrar por Rol</label>
+            <select>
+              <option>Todos los Roles</option>
+              <option>Administrador</option>
+              <option>Gestor / Constructor</option>
+            </select>
           </div>
 
-          <button
-            class="control-carrusel siguiente"
-            id="siguiente"
-            type="button"
-            aria-label="Ver productos siguientes"
-          >
-            ›
-          </button>
-        </div>
-      </section>
+          <div>
+            <label>Especialidad de Diseño</label>
+            <select>
+              <option>Todas las Divisiones</option>
+              <option>Gaming</option>
+              <option>Office</option>
+              <option>Global</option>
+            </select>
+          </div>
+
+          <hr />
+
+          <h2>Jerarquía de Roles</h2>
+
+          <article>
+            <h3>ADMINISTRADOR</h3>
+            <p>
+              Controla el flujo de inventario, aprobación de hardware, gestión
+              de credenciales y asignación de presupuestos.
+            </p>
+          </article>
+
+          <article>
+            <h3>GESTOR / CONSTRUCTOR</h3>
+            <p>
+              Acceso para ensamblar sistemas Gaming y Office. Consume inventario
+              interno para validación de compatibilidad automatizada.
+            </p>
+          </article>
+        </aside>
+
+        <section>
+          <table>
+            <thead>
+              <tr>
+                <th>USUARIO / OPERADOR</th>
+                <th>ROL Y DIVISIÓN</th>
+                <th>HISTORIAL</th>
+                <th>ÚLTIMO ACCESO</th>
+                <th>ESTADO</th>
+                <th>ACCIONES</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Carlos Mendoza</strong><br />c.mendoza@techcore.com
+                </td>
+                <td>ADMINISTRADOR (Global)</td>
+                <td>0<br />Equipos armados</td>
+                <td>Hace 4 minutos</td>
+                <td>ACTIVO</td>
+                <td><button>Editar</button> <button>Configurar</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Sofía Velasquez</strong><br />s.velasquez@techcore.com
+                </td>
+                <td>GESTOR/USER (Gaming)</td>
+                <td>47<br />Equipos armados</td>
+                <td>Hace 2 horas</td>
+                <td>ACTIVO</td>
+                <td><button>Editar</button> <button>Configurar</button></td>
+              </tr>
+              <tr>
+                <td><strong>Mateo Rivas</strong><br />m.rivas@techcore.com</td>
+                <td>GESTOR/USER (Office)</td>
+                <td>38<br />Equipos armados</td>
+                <td>Hace 1 día</td>
+                <td>ACTIVO</td>
+                <td><button>Editar</button> <button>Configurar</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Alejandro Thorne</strong><br />a.thorne@techcore.com
+                </td>
+                <td>GESTOR/USER (Gaming)</td>
+                <td>29<br />Equipos armados</td>
+                <td>Hace 5 días</td>
+                <td>INACTIVO</td>
+                <td><button>Editar</button> <button>Configurar</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Elena Rostova</strong><br />e.rostova@techcore.com
+                </td>
+                <td>ADMINISTRADOR (Global)</td>
+                <td>4<br />Equipos armados</td>
+                <td>Ayer, 18:42</td>
+                <td>ACTIVO</td>
+                <td><button>Editar</button> <button>Configurar</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Rubén Duarte</strong><br />r.duarte@techcore.com
+                </td>
+                <td>GESTOR/USER (Office)</td>
+                <td>12<br />Equipos armados</td>
+                <td>Hace 2 semanas</td>
+                <td>SUSPENDIDO</td>
+                <td><button>Editar</button> <button>Configurar</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <footer>
+            <span>Mostrando 6 de 42 operadores autorizados</span>
+            <button>Anterior</button>
+            <button>Siguiente</button>
+          </footer>
+        </section>
+      </div>
     </main>
   </body>
 </html>
