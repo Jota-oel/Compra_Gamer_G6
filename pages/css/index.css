@@ -1,0 +1,136 @@
+:root {
+  --bg-dark: #0b0e14;
+  --text-main: #ffffff;
+  --text-muted: #8a92a6;
+  --neon-cyan: #00e5ff;
+  --neon-pink: #ff0055;
+  --card-bg: rgba(255, 255, 255, 0.02);
+  --card-border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+
+  background-image: radial-gradient(circle at top, #1a2235 0%, #0b0e14 40%);
+}
+
+.root-home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.root-describe {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.subtitle {
+  display: inline-block;
+  color: var(--neon-cyan);
+  border: 1px solid var(--neon-cyan);
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.title-main {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.description {
+  color: var(--text-muted);
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.root-split {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+}
+
+.root-left-card,
+.root-right-card {
+  flex: 1;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 40px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.root-left-card {
+  border-top: 3px solid var(--neon-pink);
+}
+.root-left-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(255, 0, 85, 0.15);
+}
+
+.root-right-card {
+  border-top: 3px solid white;
+}
+.root-right-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.root-split h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.root-split p {
+  color: var(--text-muted);
+  margin-bottom: 30px;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.button-primary,
+.button-secondary {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.button-primary {
+  background-color: var(--neon-pink);
+  color: white;
+}
+.button-primary:hover {
+  background-color: #d40047;
+}
+
+.button-secondary {
+  background-color: white;
+  color: black;
+}
+.button-secondary:hover {
+  background-color: #e0e0e0;
+}
