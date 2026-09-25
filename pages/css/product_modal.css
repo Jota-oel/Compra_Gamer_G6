@@ -1,0 +1,323 @@
+/*
+ * Cargar colores.css antes de este archivo.
+ * Usa los IDs y las clases existentes en product_modal.html.
+ * Todos los estilos quedan limitados a #product-modal.
+ */
+
+/* Fondo del modal */
+#product-modal,
+#product-modal *,
+#product-modal *::before,
+#product-modal *::after {
+  box-sizing: border-box;
+}
+
+#product-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background-color: var(--fondo);
+  background-color: color-mix(in srgb, var(--fondo) 78%, transparent);
+  color: var(--texto);
+  color-scheme: dark;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* Permite ocultarlo con el atributo HTML hidden, sin cambiar sus IDs. */
+#product-modal[hidden] {
+  display: none;
+}
+
+/* Tarjeta y encabezado */
+#product-modal .modal-card {
+  flex: 0 1 690px;
+  min-width: 0;
+  width: 100%;
+  max-height: calc(100vh - 48px);
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--borde);
+  border-radius: 20px;
+  padding: 32px 34px 34px;
+  background-color: var(--superficie);
+  box-shadow: 0 24px 64px var(--fondo);
+  scrollbar-width: thin;
+  scrollbar-color: var(--borde-claro) var(--superficie);
+}
+
+#product-modal .modal-header {
+  margin: 0;
+  border-bottom: 1px solid var(--borde-claro);
+  padding-bottom: 26px;
+}
+
+#product-modal .modal-header h2 {
+  margin: 0;
+  color: var(--texto);
+  font-size: 26px;
+  font-weight: 750;
+  line-height: 1.3;
+  letter-spacing: -0.4px;
+}
+
+/* Formulario */
+#product-modal #product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 28px 0 0;
+  padding: 0;
+}
+
+#product-modal .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+}
+
+#product-modal .form-group label {
+  display: block;
+  margin: 0;
+  color: var(--texto-secundario);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+/* Categoría / precio y stock / imagen: dos columnas del mismo ancho. */
+#product-modal .form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: 0;
+}
+
+#product-modal input,
+#product-modal textarea,
+#product-modal button {
+  font: inherit;
+}
+
+#product-modal input,
+#product-modal textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  border: 1px solid var(--borde-claro);
+  border-radius: 10px;
+  padding: 12px 14px;
+  outline: none;
+  color: var(--texto);
+  background-color: var(--fondo);
+  caret-color: var(--cian);
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+#product-modal input {
+  height: 49px;
+}
+
+#product-modal input::placeholder,
+#product-modal textarea::placeholder {
+  color: var(--texto-secundario);
+  opacity: 1;
+}
+
+#product-modal input:hover,
+#product-modal textarea:hover {
+  border-color: var(--texto-apagado);
+}
+
+#product-modal input:focus,
+#product-modal textarea:focus {
+  border-color: var(--cian);
+  box-shadow: 0 0 0 3px var(--cian-suave);
+}
+
+#product-modal #product-description {
+  height: 104px;
+  min-height: 104px;
+  padding: 12px 18px;
+  resize: vertical;
+}
+
+/* El datalist categories-list conserva el comportamiento nativo del navegador. */
+#product-modal #product-name,
+#product-modal #product-category {
+  width: 100%;
+}
+
+/* Campos con prefijo: $, Uds y URL */
+#product-modal .input-prefix-group {
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+  height: 49px;
+  overflow: hidden;
+  border: 1px solid var(--borde-claro);
+  border-radius: 10px;
+  background-color: var(--fondo);
+}
+
+#product-modal .input-prefix-group:hover {
+  border-color: var(--texto-apagado);
+}
+
+#product-modal .input-prefix-group:focus-within {
+  border-color: var(--cian);
+  box-shadow: 0 0 0 3px var(--cian-suave);
+}
+
+#product-modal .input-prefix-group .prefix {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--borde-claro);
+  padding-inline: 14px;
+  color: var(--texto-secundario);
+  background-color: var(--superficie-secundaria);
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+#product-modal .input-prefix-group input {
+  flex: 1 1 0;
+  width: 0;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+#product-modal #product-price,
+#product-modal #product-stock {
+  font-variant-numeric: tabular-nums;
+}
+
+#product-modal #product-image {
+  text-overflow: ellipsis;
+}
+
+/* Acciones */
+#product-modal .modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 4px;
+  border-top: 1px solid var(--borde-claro);
+  padding-top: 28px;
+}
+
+#product-modal .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  border: 1px solid var(--borde-claro);
+  border-radius: 10px;
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+#product-modal #cancel-btn {
+  color: var(--texto-secundario);
+  background-color: var(--superficie);
+}
+
+#product-modal #cancel-btn:hover {
+  border-color: var(--texto-apagado);
+  color: var(--texto);
+  background-color: var(--superficie-secundaria);
+}
+
+#product-modal .btn-primary {
+  border-color: var(--cian);
+  color: var(--fondo);
+  background-color: var(--cian);
+}
+
+#product-modal .btn-primary:hover {
+  color: var(--cian);
+  background-color: var(--cian-suave);
+}
+
+#product-modal .btn:focus-visible {
+  outline: 2px solid var(--cian);
+  outline-offset: 3px;
+}
+
+#product-modal .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Celulares: una columna y tarjeta desplazable si no entra en la pantalla. */
+@media (max-width: 560px) {
+  #product-modal {
+    padding: 12px;
+  }
+
+  #product-modal .modal-card {
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
+    border-radius: 16px;
+    padding: 24px 20px;
+  }
+
+  #product-modal .modal-header {
+    padding-bottom: 20px;
+  }
+
+  #product-modal .modal-header h2 {
+    font-size: 23px;
+  }
+
+  #product-modal #product-form {
+    gap: 20px;
+    margin-top: 22px;
+  }
+
+  #product-modal .form-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  #product-modal .modal-footer {
+    gap: 10px;
+    padding-top: 22px;
+  }
+
+  #product-modal .btn {
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  #product-modal .modal-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
