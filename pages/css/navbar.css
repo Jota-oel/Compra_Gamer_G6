@@ -24,7 +24,12 @@ body {
   width: 100%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
-
+.root-navbar-container {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #0b0e14;
+}
 .logo {
   display: flex;
   align-items: center;
