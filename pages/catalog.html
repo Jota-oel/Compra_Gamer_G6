@@ -1,125 +1,137 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Gestión de Operadores y Usuarios</title>
+    <title>Component Management</title>
+    <link rel="stylesheet" href="css/colores.css" />
+    <link rel="stylesheet" href="css/catalog.css" />
+    <!-- Agregá css/product_modal.css cuando implementes el modal. -->
   </head>
-  <body>
-    <main>
-      <header>
-        <div>
-          <h1>Product Managment</h1>
-          <p>
-            Manage the catalog, stock, and costs of components available for
-            building. Listed products include description, cost price, and
-            available quantity.
-          </p>
-        </div>
+  <body class="pagina-catalogo">
+    <main class="panel-administracion">
+      <header class="encabezado">
+        <h1 class="titulo-principal">Component Management</h1>
 
-        <button>+ CREATE NEW PRODUCT</button>
+        <button class="boton-nuevo" type="button">
+          <svg class="icono-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+          CREATE NEW PRODUCT
+        </button>
+
+        <p class="descripcion-principal">
+          Manage the catalog, stock, and costs of components available for
+          building. Listed products include description, cost price, and
+          available quantity.
+        </p>
       </header>
 
-      <section>
-        <article>
-          <p>TOTAL PRODUCTS</p>
-          <strong>128</strong>
-          <p>Components and accesories in catalog</p>
-        </article>
+      <!-- Maqueta sin JavaScript: estos controles no filtran ni editan datos. -->
+      <div class="zona-contenido">
+        <aside class="panel-filtros" aria-labelledby="titulo-filtros">
+          <h2 class="titulo-seccion" id="titulo-filtros">Search and Filters</h2>
 
-        <article>
-          <p>TOTAL INVENTORY COST</p>
-          <strong>$128.4k</strong>
-          <p>Total cost of products in stock</p>
-        </article>
-
-        <article>
-          <p>AVAILABLE UNITS</p>
-          <strong>2,184</strong>
-          <p>Units ready for assembly and sale</p>
-        </article>
-
-        <article>
-          <p>LOW STOCK PRODUCTS</p>
-          <strong>12</strong>
-          <p>Products with less than 5 units in stock</p>
-        </article>
-      </section>
-
-      <div>
-        <aside>
-          <h2>Search and Filters</h2>
-
-          <input type="search" placeholder="Search product..." />
-
-          <div>
-            <label>Category</label>
-            <select>
-              <option>All categories</option>
-              <option>GPUS</option>
-              <option>CPUS</option>
-            </select>
+          <div class="campo-con-icono">
+            <svg class="icono-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="10.5" cy="10.5" r="6.5" />
+              <path d="m16 16 4 4" />
+            </svg>
+            <input
+              class="campo-busqueda"
+              type="search"
+              name="busqueda"
+              placeholder="Search product..."
+              aria-label="Search product"
+            />
           </div>
 
-          <div>
-            <label>Stock Status</label>
-            <select>
-              <option>All Statues</option>
-              <option>Sold</option>
-              <option>Ready</option>
-              <option>Crafting</option>
-            </select>
+          <div class="grupo-filtro">
+            <label class="etiqueta-filtro" for="categoria">Category</label>
+            <div class="contenedor-selector">
+              <select class="selector-filtro" id="categoria" name="categoria">
+                <option value="">All categories</option>
+                <option value="gpus">GPUS</option>
+                <option value="cpus">CPUS</option>
+              </select>
+              <svg class="icono-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m8 10 4 4 4-4" />
+              </svg>
+            </div>
           </div>
-
-          <hr />
         </aside>
 
-        <section>
-          <table>
-            <thead>
-              <tr>
-                <th>PRODUCT</th>
-                <th>ID</th>
-                <th>DESCRIPTION</th>
-                <th>COST</th>
-                <th>STOCK</th>
-                <th>ACTIONS</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <strong>Ryzen 9 7950X</strong><br />AMD 16-core processor for
-                  Gaming and rendering.
-                </td>
-                <td>#PRD-1042</td>
-                <td>16 cores / 32 threads</td>
-                <td>$1,240/td></td>
-                <td>18 u.</td>
-                <td><button>✎</button></td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>GeForce RTX 4080</strong><br />NVIDIA graphics card
-                  with DLSS 4 and ray tracing.
-                </td>
+        <section class="panel-productos" aria-label="Product catalog">
+          <div class="tabla-desplazable" tabindex="0" role="region" aria-label="Scrollable product table">
+            <table class="tabla-productos" aria-label="Products, costs and available stock">
+              <thead>
+                <tr>
+                  <th class="columna-producto" scope="col">PRODUCT</th>
+                  <th class="columna-identificador" scope="col">ID</th>
+                  <th class="columna-descripcion" scope="col">DESCRIPTION</th>
+                  <th class="columna-costo" scope="col">COST</th>
+                  <th class="columna-stock" scope="col">STOCK</th>
+                  <th class="columna-acciones" scope="col">ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="fila-producto">
+                  <td class="datos-producto">
+                    <strong class="nombre-producto">Ryzen 9 7950X</strong>
+                    <p class="resumen-producto">
+                      AMD 16-core processor for Gaming and rendering.
+                    </p>
+                  </td>
+                  <td class="identificador-producto">#PRD-1042</td>
+                  <td class="descripcion-producto">16 cores / 32 threads</td>
+                  <td class="costo-producto">$1,240</td>
+                  <td class="stock-producto">18 u.</td>
+                  <td class="acciones-producto">
+                    <button class="boton-editar" type="button" aria-label="Edit Ryzen 9 7950X" title="Edit product">
+                      <svg class="icono-svg" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 5H5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-7" />
+                        <path d="m10 14 1-4 8-8 3 3-8 8-4 1ZM17 4l3 3" />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
 
-                <td>#PRD-1187</td>
-                <td>16 GB GDDR6X</td>
-                <td>$1,980</td>
-                <td>7 u.</td>
-                <td><button>✎</button></td>
-              </tr>
-            </tbody>
-          </table>
+                <tr class="fila-producto">
+                  <td class="datos-producto">
+                    <strong class="nombre-producto">GeForce RTX 4080</strong>
+                    <p class="resumen-producto">
+                      NVIDIA graphics card with DLSS 4 and ray tracing.
+                    </p>
+                  </td>
+                  <td class="identificador-producto">#PRD-1187</td>
+                  <td class="descripcion-producto">16 GB GDDR6X</td>
+                  <td class="costo-producto">$1,980</td>
+                  <td class="stock-producto">7 u.</td>
+                  <td class="acciones-producto">
+                    <button class="boton-editar" type="button" aria-label="Edit GeForce RTX 4080" title="Edit product">
+                      <svg class="icono-svg" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 5H5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-7" />
+                        <path d="m10 14 1-4 8-8 3 3-8 8-4 1ZM17 4l3 3" />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-          <footer>
-            <span>Showing 6 of 128 products in catalog</span>
-            <button>Previous</button>
-            <button>Next</button>
+          <footer class="pie-tabla">
+            <!-- Texto de ejemplo conservado de la maqueta. -->
+            <span class="cantidad-resultados">Showing 6 of 128 products in catalog</span>
+            <div class="paginacion" role="group" aria-label="Catalog pages">
+              <button class="boton-pagina" type="button" disabled>Previous</button>
+              <button class="boton-pagina siguiente" type="button">Next</button>
+            </div>
           </footer>
         </section>
       </div>
+
+      <!-- Espacio reservado para el modal de productos. -->
     </main>
   </body>
 </html>
