@@ -1,0 +1,26 @@
+:root {
+  --fondo: #07080e;
+  --superficie: #0d0f1a;
+  --superficie-secundaria: #12182f;
+
+  --borde: #1e2235;
+  --borde-claro: #2e344f;
+
+  --texto: #ffffff;
+  --texto-secundario: #8e9aa8;
+  --texto-apagado: #64748b;
+
+  --cian: #00f0ff;
+  --cian-suave: rgb(0 240 255 / 10.2%);
+
+  --verde: #10b981;
+  --verde-suave: rgb(16 185 129 / 10.2%);
+
+  --rosa: #ff007f;
+  --rosa-suave: rgb(255 0 127 / 10.2%);
+
+  --rojo: #ef4444;
+  --naranja: #f59e0b;
+  --violeta: #1f1625;
+  --azul: #3b82f6;
+}
