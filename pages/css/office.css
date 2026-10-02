@@ -1,3 +1,19 @@
+.theme-gaming {
+  --accent-color: #ff0055;
+  --accent-hover: #d40047;
+  --accent-glow: rgba(255, 0, 85, 0.35);
+  --badge-bg: rgba(255, 0, 85, 0.15);
+  --border-hover: rgba(255, 0, 85, 0.5);
+}
+
+.theme-office {
+  --accent-color: #00e5ff;
+  --accent-hover: #00b8cc;
+  --accent-glow: rgba(0, 229, 255, 0.35);
+  --badge-bg: rgba(0, 229, 255, 0.15);
+  --border-hover: rgba(0, 229, 255, 0.5);
+}
+
 .workstations-section {
   width: 100%;
   max-width: 1300px;
@@ -20,7 +36,7 @@
 }
 
 .subtitle-tag {
-  color: var(--accent-cyan);
+  color: var(--accent-color); /* Modificado */
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -37,7 +53,7 @@
 }
 
 .view-all-link {
-  color: var(--accent-cyan);
+  color: var(--accent-color); /* Modificado */
   font-size: 0.8rem;
   font-weight: 700;
   text-decoration: none;
@@ -69,15 +85,15 @@
   display: flex;
   flex-direction: column;
   transition:
-    transform 0.25 ease,
+    transform 0.25s ease,
     border-color 0.25s ease,
     box-shadow 0.25s ease;
 }
 
 .workstation-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(0, 240, 255, 0.4);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border-color: var(--border-hover); /* Modificado */
+  box-shadow: 0 8px 24px var(--accent-glow); /* Modificado */
 }
 
 .card-image-wrapper {
@@ -156,8 +172,8 @@
 }
 
 .btn-configure:hover {
-  background-color: var(--accent-cyan);
+  background-color: var(--accent-color); /* Modificado */
   color: #000000;
-  border-color: var(--accent-cyan);
-  box-shadow: 0 0 12px var(--accent-cyan-glow);
+  border-color: var(--accent-color); /* Modificado */
+  box-shadow: 0 0 12px var(--accent-glow); /* Modificado */
 }
