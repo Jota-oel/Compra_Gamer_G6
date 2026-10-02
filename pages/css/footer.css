@@ -1,6 +1,12 @@
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
   background-color: #05070c;
-  padding: 60px 80px 30px;
+  padding: 25px 80px 15px;
   font-family: 'Poppins', sans-serif;
 }
 
