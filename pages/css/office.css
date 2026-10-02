@@ -3,8 +3,12 @@
   max-width: 1300px;
   margin: 2.5rem auto;
   display: flex;
+  justify-content: center;
+  min-height: 100vh;
   flex-direction: column;
   gap: 1.5rem;
+
+  padding-bottom: 200px;
 }
 
 .section-header {
