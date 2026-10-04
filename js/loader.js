@@ -24,8 +24,8 @@ async function loadSection(elementId, filePath) {
 async function buildOnePage() {
     await Promise.all([
         loadSection('navbar-container', 'pages/navbar.html'),
-        loadSection('gaming-container', 'pages/gaming.html'),
-        loadSection('pro-container', 'pages/office.html'),
+        loadSection('gaming-container', 'pages/carousel.html'),
+        loadSection('pro-container', 'pages/carousel.html'),
         loadSection('footer-container', 'pages/footer.html')
     ]);
 

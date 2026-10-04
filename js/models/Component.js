@@ -1,4 +1,4 @@
-import { generate_id } from '../Utils/id.js';
+import { generate_id } from '../utils/id.js';
 
 export const COMPONENT_TYPES = Object.freeze([
   'processor', 'motherboard', 'ram', 'ssd', 'hdd', 'gpu', 'psu', 'case',
