@@ -1,0 +1,30 @@
+import { Component } from './models/Component.js';
+
+export function seed_if_empty(components, computers) {
+  if (components.length > 0 || computers.length > 0) return false;
+
+  const add = (name, description, price, stock, type) =>
+    components.create(new Component({ name, description, price, stock, type }));
+
+  const r9 = add('Ryzen 9 7950X', '16 cores / 32 threads', 1240, 30, 'processor');
+  const i5 = add('Core i5-13400', '10 cores / 16 threads', 380, 30, 'processor');
+  const mb_x = add('ASUS ROG X670E', 'AM5 / DDR5 / WiFi 6E', 520, 30, 'motherboard');
+  const mb_b = add('MSI PRO B660M', 'LGA1700 / DDR4', 140, 30, 'motherboard');
+  const ram32 = add('Corsair 32 GB DDR5', '2x16 GB 6000 MHz', 160, 40, 'ram');
+  const ram16 = add('Kingston 16 GB DDR4', '2x8 GB 3200 MHz', 55, 40, 'ram');
+  const ssd = add('Samsung 990 Pro 1 TB', 'NVMe PCIe 4.0', 110, 40, 'ssd');
+  const hdd = add('Seagate Barracuda 2 TB', '7200 RPM', 60, 20, 'hdd');
+  const gpu = add('GeForce RTX 4080', '16 GB GDDR6X', 1980, 20, 'gpu');
+  const psu_1k = add('Corsair RM1000x', '1000 W 80+ Gold', 190, 30, 'psu');
+  const psu_500 = add('EVGA 500 W', '500 W 80+ White', 45, 30, 'psu');
+  const case_a = add('NZXT H7 Flow', 'ATX mid tower', 130, 30, 'case');
+  const case_b = add('Cooler Master Q300L', 'Micro-ATX', 60, 30, 'case');
+
+  computers.create_computer({ name: 'TechCore Titan', type: 'gaming', stock: 4 }, components,
+    [r9, mb_x, ram32, ssd, gpu, psu_1k, case_a].map((c) => c.id));
+  computers.create_computer({ name: 'TechCore Office Pro', type: 'office', stock: 8 }, components,
+    [i5, mb_b, ram16, ssd, psu_500, case_b].map((c) => c.id));
+  computers.create_computer({ name: 'TechCore Office Storage', type: 'office', stock: 5 }, components,
+    [i5, mb_b, ram16, hdd, psu_500, case_b].map((c) => c.id));
+  return true;
+}
