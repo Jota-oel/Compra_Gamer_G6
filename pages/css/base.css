@@ -1,0 +1,118 @@
+/* Base compartida. Cargar colores.css antes. */
+* {
+  box-sizing: border-box;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  margin: 0;
+}
+body {
+  background: var(--fondo);
+  color: var(--texto);
+  font:
+    16px/1.5 "Segoe UI",
+    Arial,
+    sans-serif;
+  color-scheme: dark;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+summary {
+  cursor: pointer;
+}
+button {
+  color: inherit;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+:focus-visible {
+  outline: 2px solid var(--cian);
+  outline-offset: 4px;
+}
+[hidden] {
+  display: none !important;
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo img {
+  object-fit: contain;
+}
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: 1px solid var(--cian);
+  border-radius: 8px;
+  background: var(--cian);
+  color: var(--fondo);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: center;
+}
+.boton:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+.form-group {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+label {
+  color: var(--texto-secundario);
+  font-size: 0.875rem;
+}
+input,
+select,
+textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--borde-claro);
+  border-radius: 8px;
+  background: var(--fondo);
+  color: var(--texto);
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--texto-secundario);
+}
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--cian);
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
