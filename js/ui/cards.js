@@ -36,9 +36,9 @@ export function create_computer_card(pc) {
   );
 
   const footer = el('div', 'pc-card__footer');
-  const button = el('button', 'pc-card__button', pc.stock > 0 ? 'Configure' : 'Out of stock');
+  const button = el('button', 'pc-card__button', pc.stock > 0 ? 'buy' : 'Out of stock');
   button.type = 'button';
-  button.dataset.action = 'configure';
+  button.dataset.action = 'buy';
   button.dataset.id = pc.id;
   button.disabled = pc.stock === 0;
   footer.append(el('span', 'pc-card__price', usd.format(pc.price)), button);

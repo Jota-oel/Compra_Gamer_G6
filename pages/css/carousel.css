@@ -1,98 +1,64 @@
-.root-gaming-container,
-.root-office-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-
-  padding-top: 70px;
-  padding-bottom: 300px;
-
-  max-width: 900px;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
-/* Shared by gaming.html and office.html. The theme only changes --accent. */
+/* El tema modifica solo el acento de la paleta compartida. */
 .carousel {
   --gap: 1.5rem;
   --visible: 3;
-  --accent: #00e5ff;
-  width: min(100% - 2rem, 1280px);
+  --accent: var(--cian);
+  width: min(calc(100% - 2rem), 1280px);
   margin-inline: auto;
   padding-block: 4rem;
 }
-.carousel.theme-gaming { --accent: #ff0a6c; }
-.carousel.theme-office { --accent: #00e5ff; }
-
-/* header */
-.carousel__header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+.carousel.theme-gaming {
+  --accent: var(--rosa);
 }
-.carousel__tag {
-  display: block;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-}
-.carousel__title {
-  margin: 0.25rem 0 0;
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  line-height: 1.15;
-  color: var(--text, #fff);
-}
+.carousel__header,
 .carousel__actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem 1.5rem;
+  gap: 1rem;
 }
-.carousel__link {
+.carousel__header {
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+}
+.carousel__tag {
+  color: var(--accent);
   font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--accent);
-  text-decoration: none;
+  letter-spacing: 0.1em;
 }
-.carousel__link:hover { text-decoration: underline; }
-
-/* arrows */
-.carousel__controls { display: flex; gap: 0.5rem; }
-.carousel__controls[hidden] { display: none; }
+.carousel__title {
+  margin-top: 0.25rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.15;
+}
+.carousel__controls {
+  display: flex;
+  gap: 0.5rem;
+}
 .carousel__btn {
   display: grid;
   place-items: center;
   width: 2.5rem;
   height: 2.5rem;
-  border: 1px solid #263049;
+  border: 1px solid var(--borde-claro);
   border-radius: 2px;
-  background: #151a2e;
-  color: #fff;
-  font: inherit;
+  background: var(--superficie-secundaria);
   font-size: 1.1rem;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
 }
 .carousel__btn:hover,
 .carousel__btn:focus-visible {
   background: var(--accent);
-  color: #000;
+  color: var(--fondo);
 }
-
-/* track: native scroll + snap; N cards visible depending on width */
 .carousel__track {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible));
+  grid-auto-columns: calc(
+    (100% - (var(--visible) - 1) * var(--gap)) / var(--visible)
+  );
   gap: var(--gap);
-  margin: 0;
   padding: 0;
   list-style: none;
   overflow-x: auto;
@@ -101,12 +67,28 @@
   scroll-behavior: smooth;
   scrollbar-width: none;
 }
-.carousel__track::-webkit-scrollbar { display: none; }
-.carousel__track:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-
-.carousel__item { min-width: 0; scroll-snap-align: start; }
-.carousel__empty { color: var(--muted, #8b93a7); }
-
-@media (max-width: 900px) { .carousel { --visible: 2; } }
-@media (max-width: 600px) { .carousel { --visible: 1; padding-block: 2.5rem; } }
-@media (prefers-reduced-motion: reduce) { .carousel__track { scroll-behavior: auto; } }
+.carousel__track::-webkit-scrollbar {
+  display: none;
+}
+.carousel__track:focus-visible {
+  outline-color: var(--accent);
+}
+.carousel__item {
+  min-width: 0;
+  scroll-snap-align: start;
+}
+.carousel__empty,
+.pc-cards__empty {
+  color: var(--texto-secundario);
+}
+@media (max-width: 900px) {
+  .carousel {
+    --visible: 2;
+  }
+}
+@media (max-width: 600px) {
+  .carousel {
+    --visible: 1;
+    padding-block: 2.5rem;
+  }
+}
