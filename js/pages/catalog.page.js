@@ -1,4 +1,3 @@
-import '../loader.js';
 import { components, computers } from '../store.js';
 import { filter_component } from '../services/filter.js';
 import { render_stock_table, render_summary } from '../ui/tables.js';
