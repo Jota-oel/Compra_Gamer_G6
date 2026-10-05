@@ -13,7 +13,7 @@
   margin: auto;
 }
 .footer-brand {
-  max-width: 320px;
+  max-width: 200px;
 }
 .footer-logo {
   display: flex;
@@ -65,4 +65,25 @@
   text-align: center;
   color: var(--texto-secundario);
   font-size: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .root-footer-container {
+    padding: 28px 16px 16px;
+  }
+  .footer-top {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .footer-brand {
+    max-width: none;
+  }
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 24px;
+  }
+  .footer-divider {
+    margin: 20px auto 14px;
+  }
 }

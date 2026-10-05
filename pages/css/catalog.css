@@ -177,6 +177,53 @@
 .boton-pagina:hover:not(:disabled) {
   background: var(--cian-suave);
 }
+
+/* Pestañas */
+.pestanas {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--borde, #1f2740);
+}
+.pestana {
+  margin-bottom: -1px;               /* la línea activa tapa el borde de abajo */
+  padding: 12px 20px;
+  border-bottom: 2px solid transparent;
+  color: var(--texto-secundario, #8b93a7);
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.pestana:hover { color: var(--texto, #fff); }
+
+/* Radios: ocultos a la vista pero enfocables con teclado */
+.vista-radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Solo se ve la vista activa */
+.vista { display: none; }
+#vista-components:checked ~ .vista-components,
+#vista-computers:checked ~ .vista-computers { display: block; }
+
+/* Pestaña activa */
+#vista-components:checked ~ .pestanas label[for="vista-components"],
+#vista-computers:checked ~ .pestanas label[for="vista-computers"] {
+  color: var(--cian, #00e5ff);
+  border-bottom-color: var(--cian, #00e5ff);
+}
+
+/* Foco de teclado visible */
+#vista-components:focus-visible ~ .pestanas label[for="vista-components"],
+#vista-computers:focus-visible ~ .pestanas label[for="vista-computers"] {
+  outline: 2px solid var(--cian, #00e5ff);
+  outline-offset: 2px;
+}
+
 @media (max-width: 1050px) {
   .zona-contenido {
     grid-template-columns: 1fr;
@@ -189,6 +236,7 @@
     grid-column: 1 / -1;
   }
 }
+
 @media (max-width: 600px) {
   .panel-administracion {
     width: calc(100% - 32px);

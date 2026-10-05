@@ -1,15 +1,16 @@
+:root {
+  --navbar-h: 80px; /* valor de respaldo; el real lo mide el JS de abajo */
+}
+
 html {
-  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;           /* nunca queda entre dos secciones */
+  scroll-padding-top: var(--navbar-h);     /* el snap respeta el navbar */
 }
-.onepage {
-  background: radial-gradient(
-      ellipse at top,
-      var(--superficie-secundaria),
-      var(--fondo) 50%
-    )
-    var(--fondo);
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
 }
-/* Las tres secciones conservan la altura de una pantalla y el centrado. */
+
 .root-home-container,
 .root-gaming-container,
 .root-office-container {
@@ -17,12 +18,18 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   width: min(900px, calc(100% - 48px));
-  min-height: 100vh;
-  margin: auto;
-  padding: 70px 0 300px;
-  scroll-margin-top: 80px;
+  min-height: calc(100vh - var(--navbar-h));  /* fallback */
+  min-height: calc(100dvh - var(--navbar-h)); /* móviles: descuenta la barra del navegador */
+  margin-inline: auto;
+  padding-block: 2rem;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;                   /* una rueda rápida no se salta secciones */
 }
+
+footer { scroll-snap-align: end; }            /* sin esto el footer no se puede alcanzar */
+
 .root-describe {
   text-align: center;
   margin-bottom: 60px;
