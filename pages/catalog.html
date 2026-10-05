@@ -5,15 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Component Management</title>
     <link rel="stylesheet" href="css/colores.css" />
+    <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/catalog.css" />
+    <link rel="stylesheet" href="css/navbar.css"/>
     <!-- Agregá css/product_modal.css cuando implementes el modal. -->
   </head>
   <body class="pagina-catalogo">
+    <nav class="navbar">
+  <a href="#home-container" class="logo">
+    <img src="Images/logo-logo.png" alt="Logo" width="32" height="32" />
+    <img src="Images/logo-nombre.png" alt="Nombre" width="173" />
+  </a>
+  <ul class="links">
+    <li><a href="../index.html">Return</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="#carrito" aria-label="Carrito">
+      <img
+        src="Images/7ad7c76da9a0cd7d2b01b64b2590617b-icono-de-carrito-de-compras-icono-de-carrito-de-compras.png"
+        alt="Carrito"
+        width="24"
+      />
+    </a>
+  
+  </div>
+</nav>
     <main class="panel-administracion">
       <header class="encabezado">
         <h1 class="titulo-principal">Component Management</h1>
 
-        <button class="boton-nuevo" type="button">
+        <button class="boton boton-nuevo" type="button">
           <svg class="icono-svg" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 5v14M5 12h14" />
           </svg>
