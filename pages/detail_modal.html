@@ -1,0 +1,76 @@
+<!--
+  Computer detail modal (index.html). Opened by [data-action="buy"] on a PC card.
+  JS sets data-computer-id on the overlay and fills every [id^="detail-"] element with textContent.
+  Specs list: one <li> per entry of computer.components (use the template).
+  The <form> submit = "Add to cart" (so Enter works from the quantity input).
+-->
+<div class="modal-overlay" id="product-detail-modal" data-computer-id="" hidden>
+  <div
+    class="modal-card"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="detail-name"
+  >
+    <div class="modal-header">
+      <div class="modal-title-group">
+        <span class="badge" id="detail-type"></span>
+        <h2 id="detail-name"></h2>
+      </div>
+      <button type="button" class="modal-close" data-action="close" aria-label="Close">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-media">
+        <img id="detail-image" alt="" loading="lazy" />
+      </div>
+
+      <p id="detail-description"></p>
+
+      <h3>Included components</h3>
+      <ul class="specs-list" id="detail-components"></ul>
+
+      <dl class="detail-facts">
+        <div>
+          <dt>Price</dt>
+          <dd id="detail-price"></dd>
+        </div>
+        <div>
+          <dt>Stock</dt>
+          <dd id="detail-stock"></dd>
+        </div>
+      </dl>
+
+      <form id="detail-form" class="detail-form">
+        <div class="form-group">
+          <label for="detail-quantity">Quantity</label>
+          <div class="quantity">
+            <button type="button" data-action="qty-decrease" aria-label="Decrease quantity">&minus;</button>
+            <input
+              type="number"
+              id="detail-quantity"
+              name="quantity"
+              class="quantity-input"
+              min="1"
+              step="1"
+              value="1"
+              inputmode="numeric"
+              data-autofocus
+            />
+            <button type="button" data-action="qty-increase" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+
+        <p class="form-error" id="detail-error" role="alert" hidden></p>
+
+        <div class="modal-footer">
+          <button type="button" class="boton btn btn-secondary" data-action="close">Close</button>
+          <button type="submit" class="boton btn btn-primary" id="detail-add">Add to cart</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <template id="tpl-detail-component">
+    <li><span data-field="type"></span>: <span data-field="name"></span></li>
+  </template>
+</div>
