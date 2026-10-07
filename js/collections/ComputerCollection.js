@@ -1,8 +1,16 @@
-import { Collection } from './Collection.js';
-import { Computer } from '../models/Computer.js';
+import { Collection } from "./Collection.js";
+import { Computer } from "../models/Computer.js";
 
 export class ComputerCollection extends Collection {
   static item_class = Computer;
+
+  modify_stock(id, amount) {
+    const computer = this.read(id);
+    if (!computer) throw new Error(`Computer ${id} not found`);
+    computer.modify_stock(amount);
+    this.persist();
+    return computer.stock;
+  }
 
   create_computer(data, component_collection, component_ids) {
     const components = [...new Set(component_ids)].map((id) => {
@@ -13,7 +21,10 @@ export class ComputerCollection extends Collection {
 
     const units = data.stock ?? 0;
     const short = components.filter((c) => c.stock < units).map((c) => c.name);
-    if (short.length) throw new Error(`Not enough stock to build ${units} unit(s): ${short.join(', ')}`);
+    if (short.length)
+      throw new Error(
+        `Not enough stock to build ${units} unit(s): ${short.join(", ")}`,
+      );
 
     const computer = Computer.create_computer(data, components);
     components.forEach((c) => component_collection.modify_stock(c.id, -units));

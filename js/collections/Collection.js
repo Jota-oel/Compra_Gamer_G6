@@ -1,4 +1,4 @@
-import { storage } from '../utils/storage.js';
+import { storage } from "../utils/storage.js";
 
 /**
  * Base array wrapper with CRUD, filter_by_type and value_total.
@@ -18,11 +18,18 @@ export class Collection {
 
   static from_storage(storage_key) {
     const raw = storage.load(storage_key, []);
-    return new this(raw.map((d) => this.item_class.from_json(d)), storage_key);
+    return new this(
+      raw.map((d) => this.item_class.from_json(d)),
+      storage_key,
+    );
   }
 
-  get items() { return [...this.#items]; }
-  get length() { return this.#items.length; }
+  get items() {
+    return [...this.#items];
+  }
+  get length() {
+    return this.#items.length;
+  }
 
   persist() {
     if (this.#storage_key) storage.save(this.#storage_key, this.#items);
@@ -31,7 +38,9 @@ export class Collection {
   // --- CRUD ---
   create(item) {
     if (!(item instanceof this.constructor.item_class)) {
-      throw new Error(`Expected an instance of ${this.constructor.item_class.name}`);
+      throw new Error(
+        `Expected an instance of ${this.constructor.item_class.name}`,
+      );
     }
     this.#items.push(item);
     this.persist();
@@ -47,7 +56,8 @@ export class Collection {
     if (!item) throw new Error(`Item ${id} not found`);
     const { stock, ...fields } = changes;
     for (const [key, value] of Object.entries(fields)) {
-      if (['name', 'description', 'price', 'type', 'url'].includes(key)) item[key] = value;
+      if (["name", "description", "price", "type", "url"].includes(key))
+        item[key] = value;
     }
     if (stock !== undefined) item.modify_stock(stock - item.stock); // absolute stock value
     this.persist();
@@ -66,7 +76,13 @@ export class Collection {
   /** type: string or string[]. Returns a new, non-persisted collection. */
   filter_by_type(type) {
     const types = Array.isArray(type) ? type : [type];
-    return new this.constructor(this.#items.filter((item) => types.includes(item.type)));
+    return new this.constructor(
+      this.#items.filter((item) => types.includes(item.type)),
+    );
+  }
+
+  filter_by(predicate) {
+    return new this.constructor(this.#items.filter(predicate));
   }
 
   value_total() {

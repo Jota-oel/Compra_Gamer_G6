@@ -4,38 +4,49 @@
  * so load it only once, the way you already do.
  * Each carousel starts as soon as its own fragment is in the DOM (no dependency on load order).
  */
-import { components, computers } from '../store.js';
-import { Cart } from '../models/Cart.js';
-import { filter_component } from '../services/filter.js';
-import { init_carousel } from '../ui/carousel.js';
-import { render_cart } from '../ui/product_modal.js';
-import { when_ready } from '../utils/dom.js';
-import { seed_if_empty } from '../seed.js';
+import "./index.detail.js";
+import "./index.cart.js";
+import { components, computers } from "../store.js";
+import { Cart } from "../models/Cart.js";
+import { filter_component } from "../services/filter.js";
+import { init_carousel } from "../ui/carousel.js";
+import { render_cart } from "../ui/cart_modal.js";
+import { when_ready } from "../utils/dom.js";
+import { seed_if_empty } from "../seed.js";
 
 const SECTIONS = [
-  { container: '#gaming-container', type: 'gaming' },
-  { container: '#pro-container', type: 'office' },
+  { container: "#gaming-container", type: "gaming" },
+  { container: "#pro-container", type: "office" },
 ];
 
 export const cart = Cart.from_storage();
 export const carousels = {}; // { gaming, office } -> { next, prev, destroy }
 
-console.log('antes de seed →', components.length, computers.length, location.origin);
+console.log(
+  "antes de seed →",
+  components.length,
+  computers.length,
+  location.origin,
+);
 try {
   const seeded = seed_if_empty(components, computers);
-  console.log('seed →', seeded, components.length, computers.length);
-  console.log('storage →', localStorage.getItem('techcore:computers')?.length);
+  console.log("seed →", seeded, components.length, computers.length);
+  console.log("storage →", localStorage.getItem("techcore:computers")?.length);
 } catch (error) {
-  console.error('La seed falló:', error);
+  console.error("La seed falló:", error);
 }
 
 for (const { container, type } of SECTIONS) {
   when_ready(`${container} [data-carousel]`).then((root) => {
-    carousels[type] = init_carousel(root, filter_component(computers, type), type);
+    carousels[type] = init_carousel(
+      root,
+      filter_component(computers, type),
+      type,
+    );
   });
 }
 
 // navbar (cart badge) is injected by loader.js; it announces itself with this event
-document.addEventListener('onLayoutLoaded', () => render_cart(cart));
+document.addEventListener("onLayoutLoaded", () => render_cart(cart));
 
 // TODO listeners: Configure button -> open_product_modal(computer) / cart.add(...)
