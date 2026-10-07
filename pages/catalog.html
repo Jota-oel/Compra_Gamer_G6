@@ -5,15 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Component Management</title>
     <link rel="stylesheet" href="css/colores.css" />
+    <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/catalog.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
     <!-- Agregá css/product_modal.css cuando implementes el modal. -->
   </head>
   <body class="pagina-catalogo">
+    <nav class="navbar">
+      <a href="../index.html" class="logo">
+        <img src="Images/logo-logo.png" alt="Logo" width="32" height="32" />
+        <img src="Images/logo-nombre.png" alt="Nombre" width="173" />
+      </a>
+      <ul class="links">
+        <li><a href="../index.html">Return</a></li>
+      </ul>
+      <div class="nav-actions">
+      </div>
+    </nav>
+
     <main class="panel-administracion">
       <header class="encabezado">
         <h1 class="titulo-principal">Component Management</h1>
 
-        <button class="boton-nuevo" type="button">
+        <button class="boton boton-nuevo" type="button" id="btn-create-product">
           <svg class="icono-svg" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 5v14M5 12h14" />
           </svg>
@@ -21,118 +35,147 @@
         </button>
 
         <p class="descripcion-principal">
-          Manage the catalog, stock, and costs of components available for
-          building. Listed products include description, cost price, and
-          available quantity.
+          Manage the catalog, stock, and costs of components and computers.
+          Listed products include description, cost price, and available quantity.
         </p>
       </header>
 
-      <!-- Maqueta sin JavaScript: estos controles no filtran ni editan datos. -->
-      <div class="zona-contenido">
-        <aside class="panel-filtros" aria-labelledby="titulo-filtros">
-          <h2 class="titulo-seccion" id="titulo-filtros">Search and Filters</h2>
+      <!-- Tabs without JavaScript: the checked radio decides which view is visible (see catalog.css) -->
+      <div class="catalogo">
+        <input class="vista-radio" type="radio" name="vista" id="vista-components" checked />
+        <input class="vista-radio" type="radio" name="vista" id="vista-computers" />
 
-          <div class="campo-con-icono">
-            <svg class="icono-svg" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="10.5" cy="10.5" r="6.5" />
-              <path d="m16 16 4 4" />
-            </svg>
-            <input
-              class="campo-busqueda"
-              type="search"
-              name="busqueda"
-              placeholder="Search product..."
-              aria-label="Search product"
-            />
-          </div>
+        <div class="pestanas" aria-label="Catalog view">
+          <label class="pestana" for="vista-components">Components</label>
+          <label class="pestana" for="vista-computers">Computers</label>
+        </div>
 
-          <div class="grupo-filtro">
-            <label class="etiqueta-filtro" for="categoria">Category</label>
-            <div class="contenedor-selector">
-              <select class="selector-filtro" id="categoria" name="categoria">
-                <option value="">All categories</option>
-                <option value="gpus">GPUS</option>
-                <option value="cpus">CPUS</option>
-              </select>
+        <!-- View 1: Components -->
+        <section class="vista vista-components" aria-label="Components">
+          <div class="zona-contenido">
+          <!-- Filters: not wired yet (listeners pending). Ids ready for catalog.page.js -->
+          <aside class="panel-filtros" aria-labelledby="titulo-filtros-components">
+            <h2 class="titulo-seccion" id="titulo-filtros-components">Search and Filters</h2>
+
+            <div class="campo-con-icono">
               <svg class="icono-svg" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="m8 10 4 4 4-4" />
+                <circle cx="10.5" cy="10.5" r="6.5" />
+                <path d="m16 16 4 4" />
               </svg>
+              <input
+                class="campo-busqueda"
+                id="components-search"
+                type="search"
+                placeholder="Search components..."
+                aria-label="Search components"
+              />
             </div>
-          </div>
-        </aside>
 
-        <section class="panel-productos" aria-label="Product catalog">
-          <div class="tabla-desplazable" tabindex="0" role="region" aria-label="Scrollable product table">
-            <table class="tabla-productos" aria-label="Products, costs and available stock">
-              <thead>
-                <tr>
-                  <th class="columna-producto" scope="col">PRODUCT</th>
-                  <th class="columna-identificador" scope="col">ID</th>
-                  <th class="columna-descripcion" scope="col">DESCRIPTION</th>
-                  <th class="columna-costo" scope="col">COST</th>
-                  <th class="columna-stock" scope="col">STOCK</th>
-                  <th class="columna-acciones" scope="col">ACTIONS</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="fila-producto">
-                  <td class="datos-producto">
-                    <strong class="nombre-producto">Ryzen 9 7950X</strong>
-                    <p class="resumen-producto">
-                      AMD 16-core processor for Gaming and rendering.
-                    </p>
-                  </td>
-                  <td class="identificador-producto">#PRD-1042</td>
-                  <td class="descripcion-producto">16 cores / 32 threads</td>
-                  <td class="costo-producto">$1,240</td>
-                  <td class="stock-producto">18 u.</td>
-                  <td class="acciones-producto">
-                    <button class="boton-editar" type="button" aria-label="Edit Ryzen 9 7950X" title="Edit product">
-                      <svg class="icono-svg" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 5H5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-7" />
-                        <path d="m10 14 1-4 8-8 3 3-8 8-4 1ZM17 4l3 3" />
-                      </svg>
-                    </button>
-                  </td>
-                </tr>
-
-                <tr class="fila-producto">
-                  <td class="datos-producto">
-                    <strong class="nombre-producto">GeForce RTX 4080</strong>
-                    <p class="resumen-producto">
-                      NVIDIA graphics card with DLSS 4 and ray tracing.
-                    </p>
-                  </td>
-                  <td class="identificador-producto">#PRD-1187</td>
-                  <td class="descripcion-producto">16 GB GDDR6X</td>
-                  <td class="costo-producto">$1,980</td>
-                  <td class="stock-producto">7 u.</td>
-                  <td class="acciones-producto">
-                    <button class="boton-editar" type="button" aria-label="Edit GeForce RTX 4080" title="Edit product">
-                      <svg class="icono-svg" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 5H5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-7" />
-                        <path d="m10 14 1-4 8-8 3 3-8 8-4 1ZM17 4l3 3" />
-                      </svg>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <footer class="pie-tabla">
-            <!-- Texto de ejemplo conservado de la maqueta. -->
-            <span class="cantidad-resultados">Showing 6 of 128 products in catalog</span>
-            <div class="paginacion" role="group" aria-label="Catalog pages">
-              <button class="boton-pagina" type="button" disabled>Previous</button>
-              <button class="boton-pagina siguiente" type="button">Next</button>
+            <div class="grupo-filtro">
+              <label class="etiqueta-filtro" for="component-type">Component type</label>
+              <div class="contenedor-selector">
+                <select class="selector-filtro" id="component-type" name="component-type">
+                  <option value="all">All components</option>
+                  <option value="processor">Processor</option>
+                  <option value="motherboard">Motherboard</option>
+                  <option value="ram">RAM</option>
+                  <option value="ssd">SSD</option>
+                  <option value="hdd">HDD</option>
+                  <option value="gpu">GPU</option>
+                  <option value="psu">PSU</option>
+                  <option value="case">Case</option>
+                </select>
+                <svg class="icono-svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m8 10 4 4 4-4" />
+                </svg>
+              </div>
             </div>
-          </footer>
+          </aside>
+          <section class="panel-productos" aria-label="Components catalog">
+            <div class="tabla-desplazable" tabindex="0" role="region" aria-label="Scrollable Components table">
+              <table class="tabla-productos" aria-label="Components, cost and available stock">
+                <thead>
+                  <tr>
+                    <th class="columna-producto" scope="col">PRODUCT</th>
+                    <th class="columna-identificador" scope="col">ID</th>
+                    <th class="columna-descripcion" scope="col">DESCRIPTION</th>
+                    <th class="columna-costo" scope="col">COST</th>
+                    <th class="columna-stock" scope="col">STOCK</th>
+                    <th class="columna-acciones" scope="col">ACTIONS</th>
+                  </tr>
+                </thead>
+                <tbody id="components-body"></tbody>
+              </table>
+            </div>
+            <footer class="pie-tabla">
+              <span class="cantidad-resultados" id="components-summary"></span>
+            </footer>
+          </section>
+          </div>
+        </section>
+
+        <!-- View 2: Computers -->
+        <section class="vista vista-computers" aria-label="Computers">
+          <div class="zona-contenido">
+          <!-- Filters: not wired yet (listeners pending). Ids ready for catalog.page.js -->
+          <aside class="panel-filtros" aria-labelledby="titulo-filtros-computers">
+            <h2 class="titulo-seccion" id="titulo-filtros-computers">Search and Filters</h2>
+
+            <div class="campo-con-icono">
+              <svg class="icono-svg" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="10.5" cy="10.5" r="6.5" />
+                <path d="m16 16 4 4" />
+              </svg>
+              <input
+                class="campo-busqueda"
+                id="computers-search"
+                type="search"
+                placeholder="Search computers..."
+                aria-label="Search computers"
+              />
+            </div>
+
+            <div class="grupo-filtro">
+              <label class="etiqueta-filtro" for="computer-type">Computer type</label>
+              <div class="contenedor-selector">
+                <select class="selector-filtro" id="computer-type" name="computer-type">
+                  <option value="all">All computers</option>
+                  <option value="gaming">Gaming</option>
+                  <option value="office">Office</option>
+                </select>
+                <svg class="icono-svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m8 10 4 4 4-4" />
+                </svg>
+              </div>
+            </div>
+          </aside>
+          <section class="panel-productos" aria-label="Computers catalog">
+            <div class="tabla-desplazable" tabindex="0" role="region" aria-label="Scrollable Computers table">
+              <table class="tabla-productos" aria-label="Computers, price and available stock">
+                <thead>
+                  <tr>
+                    <th class="columna-producto" scope="col">PRODUCT</th>
+                    <th class="columna-identificador" scope="col">ID</th>
+                    <th class="columna-descripcion" scope="col">DESCRIPTION</th>
+                    <th class="columna-costo" scope="col">PRICE</th>
+                    <th class="columna-stock" scope="col">STOCK</th>
+                    <th class="columna-acciones" scope="col">ACTIONS</th>
+                  </tr>
+                </thead>
+                <tbody id="computers-body"></tbody>
+              </table>
+            </div>
+            <footer class="pie-tabla">
+              <span class="cantidad-resultados" id="computers-summary"></span>
+            </footer>
+          </section>
+          </div>
         </section>
       </div>
 
       <!-- Espacio reservado para el modal de productos. -->
     </main>
+
     <script type="module" src="../js/pages/catalog.page.js"></script>
   </body>
 </html>
