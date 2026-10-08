@@ -1,191 +1,67 @@
 <!--
-  Product form modal (catalog.html). ONE modal for components AND computers, create AND edit.
-  JS decides the behaviour when opening it:
-    data-mode   = "components" | "computers"   (active tab when the modal is opened)
-    data-intent = "create" | "edit"            (edit when an item is passed)
-  Convention: elements with data-only-mode / data-only-intent are visible only for that combination.
-  Texts that depend on mode+intent live in data-* attributes (see #product-form-title, #product-submit).
-  The <form> is meant to be read with `new FormData(form)`: names = name, description, type,
-  price, stock, url, id, component_ids (one entry per checked component).
+  Cart modal (index.html). Injected into #cart-container by loader.js.
+  JS (ui/cart_modal.js) toggles #cart-empty / #cart-lines / #cart-summary according to cart.count
+  and clones #tpl-cart-line once per line, filling the [data-field] nodes with textContent.
+  Buttons only carry data-action; the line is found with closest('[data-computer-id]').
 -->
-<div
-  class="modal-overlay"
-  id="product-form-modal"
-  data-mode=""
-  data-intent=""
-  hidden
->
+<div class="modal-overlay" id="cart-modal" hidden>
   <div
     class="modal-card"
     role="dialog"
     aria-modal="true"
-    aria-labelledby="product-form-title"
+    aria-labelledby="cart-title"
   >
     <div class="modal-header">
-      <h2
-        id="product-form-title"
-        data-title-components-create="CREATE COMPONENT"
-        data-title-components-edit="EDIT COMPONENT"
-        data-title-computers-create="CREATE COMPUTER"
-        data-title-computers-edit="EDIT COMPUTER"
-      >
-        CREATE PRODUCT
-      </h2>
-      <button type="button" class="modal-close" data-action="close" aria-label="Close">&times;</button>
+      <h2 id="cart-title">Your cart</h2>
+      <button type="button" class="modal-close" data-action="close" aria-label="Close" data-autofocus>&times;</button>
     </div>
 
-    <form id="product-form" class="modal-body">
-      <input type="hidden" name="id" id="product-id" />
+    <div class="modal-body">
+      <p class="cart-empty" id="cart-empty">Your cart is empty.</p>
 
-      <div class="form-group">
-        <label for="product-name">PRODUCT NAME</label>
-        <input
-          type="text"
-          id="product-name"
-          name="name"
-          maxlength="80"
-          placeholder="Ryzen 9 7950X"
-          required
-          data-autofocus
-        />
-      </div>
+      <ul class="cart-lines" id="cart-lines" hidden></ul>
 
-      <div class="form-group">
-        <label for="product-description">Description</label>
-        <textarea
-          id="product-description"
-          name="description"
-          rows="3"
-          placeholder="Write the main product features, specifications..."
-        ></textarea>
-        <!-- computers: the textarea is readonly, the description is generated from the components -->
-        <small class="form-hint" data-only-mode="computers" hidden>
-          Generated automatically from the selected components.
-        </small>
-      </div>
+      <div class="cart-summary" id="cart-summary" hidden>
+        <p>Total: <strong id="cart-total">$0</strong></p>
 
-      <div class="form-row">
-        <div class="form-group">
-          <label for="product-type">Type</label>
-          <!-- options are filled by JS from COMPONENT_TYPES or COMPUTER_TYPES -->
-          <select id="product-type" name="type" required>
-            <option value="">Select type</option>
-          </select>
-        </div>
+        <!-- shows the Error thrown by the models; the modal stays open -->
+        <p class="form-error" id="cart-error" role="alert" hidden></p>
 
-        <div class="form-group">
-          <label for="product-price">Price</label>
-          <div class="input-prefix-group">
-            <span class="prefix">$</span>
-            <input
-              type="number"
-              id="product-price"
-              name="price"
-              min="0"
-              step="0.01"
-              placeholder="0.00"
-              required
-            />
-          </div>
-          <!-- computers + create: price is optional (JS removes `required`) -->
-          <small class="form-hint" data-only-mode="computers" data-only-intent="create" hidden>
-            Leave empty to use the sum of the components.
-          </small>
+        <div class="modal-footer">
+          <button type="button" class="boton btn btn-secondary" id="cart-clear" data-action="cart-clear">
+            Clear cart
+          </button>
+          <!-- delete this button if it is decided that there is no checkout -->
+          <button type="button" class="boton btn btn-primary" id="cart-checkout" data-action="checkout">
+            Checkout
+          </button>
         </div>
       </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label for="product-stock">Stock Quantity</label>
-          <div class="input-prefix-group">
-            <span class="prefix">Uds</span>
-            <input
-              type="number"
-              id="product-stock"
-              name="stock"
-              min="0"
-              step="1"
-              placeholder="0"
-              required
-            />
-          </div>
-          <small class="form-hint" data-only-mode="computers" data-only-intent="create" hidden>
-            Units to build. Each unit uses 1 of every selected component.
-          </small>
-        </div>
-
-        <div class="form-group">
-          <label for="product-url">Image</label>
-          <div class="input-prefix-group">
-            <span class="prefix">URL</span>
-            <input type="url" id="product-url" name="url" placeholder="https://" />
-          </div>
-        </div>
-      </div>
-
-      <!-- computers + create: pick the components (JS fills #components-picker-list from `components`) -->
-      <fieldset
-        class="components-picker"
-        id="components-picker"
-        data-only-mode="computers"
-        data-only-intent="create"
-        hidden
-      >
-        <legend>Components</legend>
-        <div id="components-picker-list"></div>
-        <!-- live result of Computer.check_components(...), e.g. "Missing: gpu" -->
-        <p class="form-hint" id="components-picker-status" aria-live="polite"></p>
-      </fieldset>
-
-      <!-- computers + edit: the components can not be changed, they are shown read-only -->
-      <section
-        class="components-readonly"
-        id="components-readonly"
-        data-only-mode="computers"
-        data-only-intent="edit"
-        hidden
-      >
-        <h3>Components</h3>
-        <ul id="components-readonly-list"></ul>
-      </section>
-
-      <!-- shows the Error thrown by the models; the modal stays open -->
-      <p class="form-error" id="product-form-error" role="alert" hidden></p>
-
-      <div class="modal-footer">
-        <button type="button" class="boton btn btn-secondary" data-action="close">
-          Cancel
-        </button>
-        <button
-          type="submit"
-          class="boton btn btn-primary"
-          id="product-submit"
-          data-label-create="Create Product"
-          data-label-edit="Save Changes"
-        >
-          Create Product
-        </button>
-      </div>
-    </form>
+    </div>
   </div>
 
-  <!-- Templates: clone with `template.content.cloneNode(true)` and fill [data-field] with textContent -->
-  <template id="tpl-component-group">
-    <div class="component-group">
-      <h4 data-field="type"></h4>
-      <div data-slot="options"></div>
-    </div>
-  </template>
-
-  <template id="tpl-component-option">
-    <label class="component-option">
-      <input type="checkbox" name="component_ids" />
-      <span data-field="name"></span>
-      <small data-field="meta"></small>
-    </label>
-  </template>
-
-  <template id="tpl-readonly-component">
-    <li><span data-field="type"></span>: <span data-field="name"></span></li>
+  <template id="tpl-cart-line">
+    <li class="cart-line" data-computer-id="">
+      <img data-field="image" alt="" width="64" height="64" />
+      <div class="cart-line__info">
+        <strong data-field="name"></strong>
+        <span data-field="price"></span>
+      </div>
+      <div class="quantity">
+        <button type="button" data-action="cart-decrease" aria-label="Decrease quantity">&minus;</button>
+        <input
+          type="number"
+          class="quantity-input"
+          data-field="quantity"
+          min="1"
+          step="1"
+          inputmode="numeric"
+          aria-label="Quantity"
+        />
+        <button type="button" data-action="cart-increase" aria-label="Increase quantity">+</button>
+      </div>
+      <strong class="cart-line__subtotal" data-field="subtotal"></strong>
+      <button type="button" class="cart-line__remove" data-action="cart-remove" aria-label="Remove from cart">&times;</button>
+    </li>
   </template>
 </div>
