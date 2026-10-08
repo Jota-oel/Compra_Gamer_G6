@@ -19,12 +19,4 @@ export class ComputerCollection extends Collection {
     components.forEach((c) => component_collection.modify_stock(c.id, -units));
     return this.create(computer);
   }
-
-  modify_stock(id, amount) {
-    const computer = this.read(id);
-    if (!computer) throw new Error(`Computer ${id} not found`);
-    computer.modify_stock(amount);
-    this.persist();
-    return computer.stock;
-  }
 }
