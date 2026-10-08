@@ -8,9 +8,11 @@ import { components, computers } from '../store.js';
 import { Cart } from '../models/Cart.js';
 import { filter_component } from '../services/filter.js';
 import { init_carousel } from '../ui/carousel.js';
-import { render_cart } from '../ui/product_modal.js';
+import { render_cart } from '../ui/cart_modal.js';
 import { when_ready } from '../utils/dom.js';
 import { seed_if_empty } from '../seed.js';
+import './index.detail.js'; // Task 3
+import './index.cart.js'; // Task 3
 
 const SECTIONS = [
   { container: '#gaming-container', type: 'gaming' },

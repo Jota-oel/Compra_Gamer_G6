@@ -153,10 +153,18 @@
       <p class="form-error" id="product-form-error" role="alert" hidden></p>
 
       <div class="modal-footer">
-        <button type="button" class="boton btn btn-secondary" id="cancel-btn">
+        <button type="button" class="boton btn btn-secondary" data-action="close">
           Cancel
         </button>
-        <button type="submit" class="boton btn btn-primary">Create Product</button>
+        <button
+          type="submit"
+          class="boton btn btn-primary"
+          id="product-submit"
+          data-label-create="Create Product"
+          data-label-edit="Save Changes"
+        >
+          Create Product
+        </button>
       </div>
     </form>
   </div>
