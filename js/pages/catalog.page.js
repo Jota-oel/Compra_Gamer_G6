@@ -2,7 +2,9 @@ import { components, computers } from '../store.js';
 import { filter_component } from '../services/filter.js';
 import { render_stock_table, render_summary } from '../ui/tables.js';
 import { seed_if_empty } from '../seed.js';
-import { init_product_form_modal } from '../ui/product_modal.js';
+import { loadSection } from '../utils/fragments.js';
+import './catalog.filters.js'; // Task 1
+import './catalog.modal.js'; // Task 2
 
 const SELECTORS = {
   components_body: '#components-body',
@@ -36,21 +38,8 @@ export function build_computer(data, component_ids, filters = {}) {
 seed_if_empty(components, computers); // demo data; remove once there is a real admin flow
 render_catalog();
 
-const create_button = $('#btn-create-product');
-create_button.addEventListener('click', async () => {
-  create_button.disabled = true;
-  $('#catalog-modal-error').hidden = true;
-  try {
-    const open_form = await init_product_form_modal();
-    open_form($('#vista-computers').checked ? 'computers' : 'components', components.items);
-  } catch (error) {
-    const message = $('#catalog-modal-error');
-    message.textContent = 'Could not load the product form. Please try again.';
-    message.hidden = false;
-    console.error(error);
-  } finally {
-    create_button.disabled = false;
-  }
-});
+// The product form modal is injected as soon as the page starts (path is relative to pages/catalog.html).
+// Task 2 can wait for it with when_ready('#product-form-modal').
+loadSection('product-form-container', 'product_modal.html');
 
-// TODO listeners: type filters -> render_catalog({...}); create-PC form -> build_computer(...); edit buttons
+// TODO listeners: type filters -> Task 1; create / edit / submit of the product form -> Task 2
