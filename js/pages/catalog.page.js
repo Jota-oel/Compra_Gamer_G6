@@ -3,6 +3,7 @@ import { filter_component } from '../services/filter.js';
 import { render_stock_table, render_summary } from '../ui/tables.js';
 import { seed_if_empty } from '../seed.js';
 import { init_product_form_modal } from '../ui/product_modal.js';
+import './catalog.filters.js';
 
 const SELECTORS = {
   components_body: '#components-body',
