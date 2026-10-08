@@ -94,6 +94,10 @@ body.modal-open {
   text-transform: uppercase;
 }
 
+.badge:empty {
+  display: none; /* sin texto no se dibuja la píldora vacía */
+}
+
 .form-error {
   padding: 10px 12px;
   border: 1px solid var(--rojo);
@@ -106,6 +110,7 @@ body.modal-open {
 /* ---------- Selector de cantidad (detalle y carrito) ---------- */
 .quantity {
   display: inline-flex;
+  justify-self: start; /* dentro de un grid no se estira a todo el ancho */
   align-items: stretch;
   overflow: hidden;
   border: 1px solid var(--borde-claro);
