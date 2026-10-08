@@ -1,8 +1,8 @@
 import { storage } from '../utils/storage.js';
 
 /**
- * Base array wrapper with CRUD, filter_by / filter_by_type and value_total.
- * filter_by() and filter_by_type() return a NEW collection (not persisted), so they can be chained:
+ * Base array wrapper with CRUD, filter_by_type and value_total.
+ * filter_by_type() returns a NEW collection (not persisted), so it can be chained:
  *   components.filter_by_type('ram').value_total()
  */
 export class Collection {
@@ -63,15 +63,10 @@ export class Collection {
   }
 
   // --- queries ---
-  /** predicate: (item) => boolean. Returns a new, non-persisted collection. */
-  filter_by(predicate) {
-    return new this.constructor(this.#items.filter(predicate));
-  }
-
   /** type: string or string[]. Returns a new, non-persisted collection. */
   filter_by_type(type) {
     const types = Array.isArray(type) ? type : [type];
-    return this.filter_by((item) => types.includes(item.type));
+    return new this.constructor(this.#items.filter((item) => types.includes(item.type)));
   }
 
   value_total() {
