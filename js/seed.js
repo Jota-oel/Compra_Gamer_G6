@@ -2,8 +2,8 @@ import { Component } from './models/Component.js';
 
 const IMG = [
   'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80',
-  'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=600&q=80',
-  'https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=600&q=80',
+  'https://www.venex.com.ar/products_images/1782824650_pc_gamer_kairos_essential_amd_ryzen_5_5600gt_16gb_480gbjpg',
+  'https://www.venex.com.ar/products_images/thumb/1782391755_pc_gamer_powered_by_msi_essential_amd_ryzen_3_3200g_8gb_240gb_650wjpg',
 ];
 
 /** Demo data so the pages show something while there are no create/edit forms. Safe to delete later. */
