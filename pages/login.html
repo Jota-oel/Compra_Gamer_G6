@@ -26,7 +26,7 @@
         <span class="badge-restricted">ACCESO RESTRINGIDO</span>
         <h1 class="card-title">Portal de Gestión</h1>
 
-        <form action="#" method="POST" class="login-form">
+        <form id="login-form" action="#" method="POST" class="login-form">
           <div class="form-group">
             <label for="email">Correo Electrónico</label>
             <div class="input-container">
@@ -114,6 +114,8 @@
             </div>
           </div>
 
+          <p class="login-error" id="login-error" role="alert" hidden></p>
+
           <button type="submit" class="boton btn-submit">
             INGRESAR AL PANEL
             <svg
@@ -145,5 +147,6 @@
         <span>ASUS CONTROL</span>
       </div>
     </footer>
+    <script type="module" src="../js/pages/login.js"></script>
   </body>
 </html>

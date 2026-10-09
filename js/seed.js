@@ -1,10 +1,20 @@
 import { Component } from './models/Component.js';
 
-const IMG = [
-  'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80',
-  'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=600&q=80',
-  'https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=600&q=80',
-];
+// 4 different images per category: each demo computer gets its own one.
+const IMAGES = {
+  gaming: [
+    'https://www.venex.com.ar/products_images/thumb/1790610304_pc_gamer_powered_by_msi_advanced_amd_ryzen_5_8600g_16gb_512gb_nvme_b840_watercooler_750wpng',
+    'https://www.venex.com.ar/products_images/thumb/1785948575_pc-pba-ryzen5700gjpg',
+    'https://imagenes.compragamer.com/productos/compragamer_Imganen_general_0_PC_Gamer_AMD_Ryzen_5_9600X_RTX_5060_16GB_Y60_BLACK_B850M_16GB_1TB_SSD_NVMe_WIFI_Water_Cooler_29879d17-grn.jpg',
+    'https://imagenes.compragamer.com/productos/compragamer_Imganen_general_0_PC_Gamer_AMD_Ryzen_5_9600X_RTX_5060_8GB_Y40_CHERRY_B850M_16GB_1TB_SSD_NVMe_WIFI_Water_Cooler_d00e885b-grn.jpg',
+  ],
+  office: [
+    'https://imgs.search.brave.com/TDQrK_jV_ZjwI6tkj_YL8rqm9EKU-uPVOvc1LbhWAOg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzk5LzM0/L2ZiLzk5MzRmYjMw/NzQ5YWI0ZTAyY2Ey/ZjdkMzc3MTI3YzE5/LmpwZw',
+    'https://www.venex.com.ar/products_images/thumb/1749731626_30.jpg',
+    'https://www.venex.com.ar/products_images/thumb/1785846152_mini_pc_cx_intel_i5_1250p_8gb_240gb_free1jpg',
+    'https://www.venex.com.ar/products_images/thumb/1779307015_mini_pc_cx_amd_ryzen_3_3250ujpg',
+  ],
+};
 
 /** Demo data so the pages show something while there are no create/edit forms. Safe to delete later. */
 export function seed_if_empty(components, computers) {
@@ -41,7 +51,13 @@ export function seed_if_empty(components, computers) {
     [{ name: 'Workforce Slim', type: 'office', stock: 6, price: 599.99 }, office_parts],
     [{ name: 'Workforce Elite', type: 'office', stock: 4, price: 899 }, office_parts],
   ];
-  demo.forEach(([data, ids], i) =>
-    computers.create_computer({ ...data, url: IMG[i % IMG.length] }, components, ids));
+
+  // images are taken in order within each category: the 4 gaming PCs and the 4 office PCs all differ
+  const used = { gaming: 0, office: 0 };
+  demo.forEach(([data, ids]) => {
+    const images = IMAGES[data.type];
+    const url = images[used[data.type]++ % images.length];
+    computers.create_computer({ ...data, url }, components, ids);
+  });
   return true;
 }

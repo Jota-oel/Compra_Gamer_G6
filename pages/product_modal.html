@@ -1,13 +1,4 @@
-<!--
-  Product form modal (catalog.html). ONE modal for components AND computers, create AND edit.
-  JS decides the behaviour when opening it:
-    data-mode   = "components" | "computers"   (active tab when the modal is opened)
-    data-intent = "create" | "edit"            (edit when an item is passed)
-  Convention: elements with data-only-mode / data-only-intent are visible only for that combination.
-  Texts that depend on mode+intent live in data-* attributes (see #product-form-title, #product-submit).
-  The <form> is meant to be read with `new FormData(form)`: names = name, description, type,
-  price, stock, url, id, component_ids (one entry per checked component).
--->
+
 <div
   class="modal-overlay"
   id="product-form-modal"

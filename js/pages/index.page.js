@@ -22,11 +22,10 @@ const SECTIONS = [
 export const cart = Cart.from_storage();
 export const carousels = {}; // { gaming, office } -> { next, prev, destroy }
 
-console.log('antes de seed →', components.length, computers.length, location.origin);
+
 try {
   const seeded = seed_if_empty(components, computers);
-  console.log('seed →', seeded, components.length, computers.length);
-  console.log('storage →', localStorage.getItem('techcore:computers')?.length);
+  
 } catch (error) {
   console.error('La seed falló:', error);
 }

@@ -69,7 +69,7 @@
   padding-top: 24px;
   border-top: 1px solid var(--borde);
 }
-#cancel-btn {
+#product-form-modal .btn-secondary {
   border-color: var(--borde-claro);
   background: var(--superficie-secundaria);
   color: var(--texto);
@@ -100,7 +100,8 @@
   font-size: 2rem;
 }
 .form-hint { color: var(--texto-secundario); }
-.form-error, #catalog-modal-error { color: var(--rojo); }
+.form-error { color: var(--rojo); }
+body.modal-open { overflow: hidden; }
 .components-picker {
   min-width: 0;
   margin: 0;
