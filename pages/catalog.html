@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="css/catalog.css" />
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/product_modal.css" />
+    <script>
+      // Auth guard: runs before the page is painted. Only reachable after pages/login.html.
+      // Key and value must match js/utils/auth.js
+      let allowed = false;
+      try {
+        allowed = sessionStorage.getItem('techcore:session') === 'authenticated';
+      } catch (error) {}
+      if (!allowed) location.replace('login.html');
+    </script>
   </head>
   <body class="pagina-catalogo">
     <nav class="navbar">
@@ -27,7 +36,7 @@
       <header class="encabezado">
         <h1 class="titulo-principal">Component Management</h1>
 
-        <button class="boton boton-nuevo" type="button" id="btn-create-product">
+        <button class="boton boton-nuevo" type="button" id="btn-create-product" data-action="create">
           <svg class="icono-svg" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 5v14M5 12h14" />
           </svg>
@@ -173,7 +182,6 @@
         </section>
       </div>
 
-      <p id="catalog-modal-error" role="alert" hidden></p>
     </main>
 
     <div id="product-form-container"></div>
