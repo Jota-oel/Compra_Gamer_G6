@@ -1,0 +1,6 @@
+/* Global base styles. MUI's CssBaseline (AppProviders) handles the reset and the dark background. */
+html,
+body,
+#root {
+  min-height: 100%;
+}

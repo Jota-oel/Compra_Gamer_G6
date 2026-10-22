@@ -1,0 +1,544 @@
+{
+  "components": [
+    {
+      "id": "PRD-1001",
+      "name": "Ryzen 9 7950X",
+      "description": "16 cores / 32 threads",
+      "price": 1240,
+      "stock": 18,
+      "url": "",
+      "type": "processor"
+    },
+    {
+      "id": "PRD-1002",
+      "name": "Core i5-13400",
+      "description": "10 cores / 16 threads",
+      "price": 380,
+      "stock": 7,
+      "url": "",
+      "type": "processor"
+    },
+    {
+      "id": "PRD-1003",
+      "name": "ASUS ROG X670E",
+      "description": "AM5 / DDR5 / WiFi 6E",
+      "price": 520,
+      "stock": 18,
+      "url": "",
+      "type": "motherboard"
+    },
+    {
+      "id": "PRD-1004",
+      "name": "MSI PRO B660M",
+      "description": "LGA1700 / DDR4",
+      "price": 140,
+      "stock": 7,
+      "url": "",
+      "type": "motherboard"
+    },
+    {
+      "id": "PRD-1005",
+      "name": "Corsair 32 GB DDR5",
+      "description": "2x16 GB 6000 MHz",
+      "price": 160,
+      "stock": 28,
+      "url": "",
+      "type": "ram"
+    },
+    {
+      "id": "PRD-1006",
+      "name": "Kingston 16 GB DDR4",
+      "description": "2x8 GB 3200 MHz",
+      "price": 55,
+      "stock": 17,
+      "url": "",
+      "type": "ram"
+    },
+    {
+      "id": "PRD-1007",
+      "name": "Samsung 990 Pro 1 TB",
+      "description": "NVMe PCIe 4.0",
+      "price": 110,
+      "stock": 10,
+      "url": "",
+      "type": "ssd"
+    },
+    {
+      "id": "PRD-1008",
+      "name": "Seagate Barracuda 2 TB",
+      "description": "7200 RPM",
+      "price": 60,
+      "stock": 15,
+      "url": "",
+      "type": "hdd"
+    },
+    {
+      "id": "PRD-1009",
+      "name": "GeForce RTX 4080",
+      "description": "16 GB GDDR6X",
+      "price": 1980,
+      "stock": 8,
+      "url": "",
+      "type": "gpu"
+    },
+    {
+      "id": "PRD-1010",
+      "name": "Corsair RM1000x",
+      "description": "1000 W 80+ Gold",
+      "price": 190,
+      "stock": 18,
+      "url": "",
+      "type": "psu"
+    },
+    {
+      "id": "PRD-1011",
+      "name": "EVGA 500 W",
+      "description": "500 W 80+ White",
+      "price": 45,
+      "stock": 7,
+      "url": "",
+      "type": "psu"
+    },
+    {
+      "id": "PRD-1012",
+      "name": "NZXT H7 Flow",
+      "description": "ATX mid tower",
+      "price": 130,
+      "stock": 18,
+      "url": "",
+      "type": "case"
+    },
+    {
+      "id": "PRD-1013",
+      "name": "Cooler Master Q300L",
+      "description": "Micro-ATX",
+      "price": 60,
+      "stock": 7,
+      "url": "",
+      "type": "case"
+    }
+  ],
+  "computers": [
+    {
+      "id": "PC-2001",
+      "name": "TechCore Titan",
+      "description": "PROCESSOR: Ryzen 9 7950X | MOTHERBOARD: ASUS ROG X670E | RAM: Corsair 32 GB DDR5 | SSD: Samsung 990 Pro 1 TB | GPU: GeForce RTX 4080 | PSU: Corsair RM1000x | CASE: NZXT H7 Flow",
+      "price": 4299.99,
+      "stock": 4,
+      "url": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80",
+      "type": "gaming",
+      "components": [
+        {
+          "id": "PRD-1001",
+          "name": "Ryzen 9 7950X",
+          "type": "processor",
+          "price": 1240
+        },
+        {
+          "id": "PRD-1003",
+          "name": "ASUS ROG X670E",
+          "type": "motherboard",
+          "price": 520
+        },
+        {
+          "id": "PRD-1005",
+          "name": "Corsair 32 GB DDR5",
+          "type": "ram",
+          "price": 160
+        },
+        {
+          "id": "PRD-1007",
+          "name": "Samsung 990 Pro 1 TB",
+          "type": "ssd",
+          "price": 110
+        },
+        {
+          "id": "PRD-1009",
+          "name": "GeForce RTX 4080",
+          "type": "gpu",
+          "price": 1980
+        },
+        {
+          "id": "PRD-1010",
+          "name": "Corsair RM1000x",
+          "type": "psu",
+          "price": 190
+        },
+        {
+          "id": "PRD-1012",
+          "name": "NZXT H7 Flow",
+          "type": "case",
+          "price": 130
+        }
+      ]
+    },
+    {
+      "id": "PC-2002",
+      "name": "Core Raptor-X Custom PC",
+      "description": "PROCESSOR: Ryzen 9 7950X | MOTHERBOARD: ASUS ROG X670E | RAM: Corsair 32 GB DDR5 | SSD: Samsung 990 Pro 1 TB | GPU: GeForce RTX 4080 | PSU: Corsair RM1000x | CASE: NZXT H7 Flow",
+      "price": 2899,
+      "stock": 3,
+      "url": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=600&q=80",
+      "type": "gaming",
+      "components": [
+        {
+          "id": "PRD-1001",
+          "name": "Ryzen 9 7950X",
+          "type": "processor",
+          "price": 1240
+        },
+        {
+          "id": "PRD-1003",
+          "name": "ASUS ROG X670E",
+          "type": "motherboard",
+          "price": 520
+        },
+        {
+          "id": "PRD-1005",
+          "name": "Corsair 32 GB DDR5",
+          "type": "ram",
+          "price": 160
+        },
+        {
+          "id": "PRD-1007",
+          "name": "Samsung 990 Pro 1 TB",
+          "type": "ssd",
+          "price": 110
+        },
+        {
+          "id": "PRD-1009",
+          "name": "GeForce RTX 4080",
+          "type": "gpu",
+          "price": 1980
+        },
+        {
+          "id": "PRD-1010",
+          "name": "Corsair RM1000x",
+          "type": "psu",
+          "price": 190
+        },
+        {
+          "id": "PRD-1012",
+          "name": "NZXT H7 Flow",
+          "type": "case",
+          "price": 130
+        }
+      ]
+    },
+    {
+      "id": "PC-2003",
+      "name": "Vortex RTX Pro",
+      "description": "PROCESSOR: Ryzen 9 7950X | MOTHERBOARD: ASUS ROG X670E | RAM: Corsair 32 GB DDR5 | SSD: Samsung 990 Pro 1 TB | GPU: GeForce RTX 4080 | PSU: Corsair RM1000x | CASE: NZXT H7 Flow",
+      "price": 3499.99,
+      "stock": 3,
+      "url": "https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=600&q=80",
+      "type": "gaming",
+      "components": [
+        {
+          "id": "PRD-1001",
+          "name": "Ryzen 9 7950X",
+          "type": "processor",
+          "price": 1240
+        },
+        {
+          "id": "PRD-1003",
+          "name": "ASUS ROG X670E",
+          "type": "motherboard",
+          "price": 520
+        },
+        {
+          "id": "PRD-1005",
+          "name": "Corsair 32 GB DDR5",
+          "type": "ram",
+          "price": 160
+        },
+        {
+          "id": "PRD-1007",
+          "name": "Samsung 990 Pro 1 TB",
+          "type": "ssd",
+          "price": 110
+        },
+        {
+          "id": "PRD-1009",
+          "name": "GeForce RTX 4080",
+          "type": "gpu",
+          "price": 1980
+        },
+        {
+          "id": "PRD-1010",
+          "name": "Corsair RM1000x",
+          "type": "psu",
+          "price": 190
+        },
+        {
+          "id": "PRD-1012",
+          "name": "NZXT H7 Flow",
+          "type": "case",
+          "price": 130
+        }
+      ]
+    },
+    {
+      "id": "PC-2004",
+      "name": "Nova Streamer",
+      "description": "PROCESSOR: Ryzen 9 7950X | MOTHERBOARD: ASUS ROG X670E | RAM: Corsair 32 GB DDR5 | SSD: Samsung 990 Pro 1 TB | GPU: GeForce RTX 4080 | PSU: Corsair RM1000x | CASE: NZXT H7 Flow",
+      "price": 3199,
+      "stock": 2,
+      "url": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80",
+      "type": "gaming",
+      "components": [
+        {
+          "id": "PRD-1001",
+          "name": "Ryzen 9 7950X",
+          "type": "processor",
+          "price": 1240
+        },
+        {
+          "id": "PRD-1003",
+          "name": "ASUS ROG X670E",
+          "type": "motherboard",
+          "price": 520
+        },
+        {
+          "id": "PRD-1005",
+          "name": "Corsair 32 GB DDR5",
+          "type": "ram",
+          "price": 160
+        },
+        {
+          "id": "PRD-1007",
+          "name": "Samsung 990 Pro 1 TB",
+          "type": "ssd",
+          "price": 110
+        },
+        {
+          "id": "PRD-1009",
+          "name": "GeForce RTX 4080",
+          "type": "gpu",
+          "price": 1980
+        },
+        {
+          "id": "PRD-1010",
+          "name": "Corsair RM1000x",
+          "type": "psu",
+          "price": 190
+        },
+        {
+          "id": "PRD-1012",
+          "name": "NZXT H7 Flow",
+          "type": "case",
+          "price": 130
+        }
+      ]
+    },
+    {
+      "id": "PC-2005",
+      "name": "TechCore Office Pro",
+      "description": "PROCESSOR: Core i5-13400 | MOTHERBOARD: MSI PRO B660M | RAM: Kingston 16 GB DDR4 | SSD: Samsung 990 Pro 1 TB | PSU: EVGA 500 W | CASE: Cooler Master Q300L",
+      "price": 749.99,
+      "stock": 8,
+      "url": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=600&q=80",
+      "type": "office",
+      "components": [
+        {
+          "id": "PRD-1002",
+          "name": "Core i5-13400",
+          "type": "processor",
+          "price": 380
+        },
+        {
+          "id": "PRD-1004",
+          "name": "MSI PRO B660M",
+          "type": "motherboard",
+          "price": 140
+        },
+        {
+          "id": "PRD-1006",
+          "name": "Kingston 16 GB DDR4",
+          "type": "ram",
+          "price": 55
+        },
+        {
+          "id": "PRD-1007",
+          "name": "Samsung 990 Pro 1 TB",
+          "type": "ssd",
+          "price": 110
+        },
+        {
+          "id": "PRD-1011",
+          "name": "EVGA 500 W",
+          "type": "psu",
+          "price": 45
+        },
+        {
+          "id": "PRD-1013",
+          "name": "Cooler Master Q300L",
+          "type": "case",
+          "price": 60
+        }
+      ]
+    },
+    {
+      "id": "PC-2006",
+      "name": "Office Storage Plus",
+      "description": "PROCESSOR: Core i5-13400 | MOTHERBOARD: MSI PRO B660M | RAM: Kingston 16 GB DDR4 | HDD: Seagate Barracuda 2 TB | PSU: EVGA 500 W | CASE: Cooler Master Q300L",
+      "price": 649,
+      "stock": 5,
+      "url": "https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=600&q=80",
+      "type": "office",
+      "components": [
+        {
+          "id": "PRD-1002",
+          "name": "Core i5-13400",
+          "type": "processor",
+          "price": 380
+        },
+        {
+          "id": "PRD-1004",
+          "name": "MSI PRO B660M",
+          "type": "motherboard",
+          "price": 140
+        },
+        {
+          "id": "PRD-1006",
+          "name": "Kingston 16 GB DDR4",
+          "type": "ram",
+          "price": 55
+        },
+        {
+          "id": "PRD-1008",
+          "name": "Seagate Barracuda 2 TB",
+          "type": "hdd",
+          "price": 60
+        },
+        {
+          "id": "PRD-1011",
+          "name": "EVGA 500 W",
+          "type": "psu",
+          "price": 45
+        },
+        {
+          "id": "PRD-1013",
+          "name": "Cooler Master Q300L",
+          "type": "case",
+          "price": 60
+        }
+      ]
+    },
+    {
+      "id": "PC-2007",
+      "name": "Workforce Slim",
+      "description": "PROCESSOR: Core i5-13400 | MOTHERBOARD: MSI PRO B660M | RAM: Kingston 16 GB DDR4 | SSD: Samsung 990 Pro 1 TB | PSU: EVGA 500 W | CASE: Cooler Master Q300L",
+      "price": 599.99,
+      "stock": 6,
+      "url": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80",
+      "type": "office",
+      "components": [
+        {
+          "id": "PRD-1002",
+          "name": "Core i5-13400",
+          "type": "processor",
+          "price": 380
+        },
+        {
+          "id": "PRD-1004",
+          "name": "MSI PRO B660M",
+          "type": "motherboard",
+          "price": 140
+        },
+        {
+          "id": "PRD-1006",
+          "name": "Kingston 16 GB DDR4",
+          "type": "ram",
+          "price": 55
+        },
+        {
+          "id": "PRD-1007",
+          "name": "Samsung 990 Pro 1 TB",
+          "type": "ssd",
+          "price": 110
+        },
+        {
+          "id": "PRD-1011",
+          "name": "EVGA 500 W",
+          "type": "psu",
+          "price": 45
+        },
+        {
+          "id": "PRD-1013",
+          "name": "Cooler Master Q300L",
+          "type": "case",
+          "price": 60
+        }
+      ]
+    },
+    {
+      "id": "PC-2008",
+      "name": "Workforce Elite",
+      "description": "PROCESSOR: Core i5-13400 | MOTHERBOARD: MSI PRO B660M | RAM: Kingston 16 GB DDR4 | SSD: Samsung 990 Pro 1 TB | PSU: EVGA 500 W | CASE: Cooler Master Q300L",
+      "price": 899,
+      "stock": 4,
+      "url": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=600&q=80",
+      "type": "office",
+      "components": [
+        {
+          "id": "PRD-1002",
+          "name": "Core i5-13400",
+          "type": "processor",
+          "price": 380
+        },
+        {
+          "id": "PRD-1004",
+          "name": "MSI PRO B660M",
+          "type": "motherboard",
+          "price": 140
+        },
+        {
+          "id": "PRD-1006",
+          "name": "Kingston 16 GB DDR4",
+          "type": "ram",
+          "price": 55
+        },
+        {
+          "id": "PRD-1007",
+          "name": "Samsung 990 Pro 1 TB",
+          "type": "ssd",
+          "price": 110
+        },
+        {
+          "id": "PRD-1011",
+          "name": "EVGA 500 W",
+          "type": "psu",
+          "price": 45
+        },
+        {
+          "id": "PRD-1013",
+          "name": "Cooler Master Q300L",
+          "type": "case",
+          "price": 60
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "USR-1",
+      "name": "Admin",
+      "email": "admin@techcore.com",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": "USR-2",
+      "name": "Customer",
+      "email": "user@techcore.com",
+      "password": "user123",
+      "role": "user"
+    }
+  ],
+  "orders": [],
+  "carts": [],
+  "session": {
+    "userId": null
+  }
+}
