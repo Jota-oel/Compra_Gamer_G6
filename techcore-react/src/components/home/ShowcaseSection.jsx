@@ -1,6 +1,6 @@
 import { Link as RouterLink } from 'react-router';
 import { Alert, Box, Button, Skeleton, Typography } from '@mui/material';
-import { ComputerCard } from '../ui/ComputerCard.jsx';
+import { ProductCarousel } from './ProductCarousel.jsx';
 import { useAuth } from '../../hooks/useAuth.js';
 import { accent_for_type } from '../../theme/theme.js';
 
@@ -55,16 +55,7 @@ export function ShowcaseSection({ type, computers, loading = false, error = null
   } else if (computers.length === 0) {
     body = <Typography color="text.secondary">No computers available.</Typography>;
   } else {
-    // MX-3 reemplaza esta grilla por <ProductCarousel computers={computers} onBuy={onBuy} />
-    body = (
-      <Box component="ul" sx={grid_sx}>
-        {computers.map((computer) => (
-          <Box component="li" key={computer.id} sx={{ minWidth: 0 }}>
-            <ComputerCard computer={computer} onBuy={onBuy} />
-          </Box>
-        ))}
-      </Box>
-    );
+    body = <ProductCarousel computers={computers} onBuy={onBuy} accent={accent} label={content.title} />;
   }
 
   return (

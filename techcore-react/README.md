@@ -39,7 +39,7 @@ Variables de entorno: copiar `.env.example` a `.env` (solo hace falta para cambi
 ```
 src
 ├── api          http.js (único fetch) · Components.js · Computers.js · Orders.js · Users.js · Session.js · Carts.js · db/
-├── components   auth/ (ProtectedRoute) · home/ (Hero, ShowcaseSection) · ui/ (ComputerCard) · (catalog, cart, dialogs: a crear por cada dueño)
+├── components   auth/ (ProtectedRoute) · home/ (Hero, ShowcaseSection, ProductCarousel) · ui/ (ComputerCard) · (catalog, cart, dialogs: a crear por cada dueño)
 ├── context      objetos de contexto (uno por recurso)
 ├── hooks        useAuth · useComponents · useComputers · useCart · useNotify · useDebounce · useFilteredList
 ├── layout       MainLayout · Navbar · Footer (MX-1)
@@ -48,7 +48,7 @@ src
 ├── provider     AppProviders y un provider por recurso
 ├── services     inventory.js (operaciones que tocan varios recursos)
 ├── theme        theme.js (tema oscuro con los colores de marca, MX-1)
-└── utils        filters · format · id
+└── utils        filters · format · id · carousel (MX-3)
 ```
 
 ## Contratos de los hooks (no cambiar sin avisar al líder)
