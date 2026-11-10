@@ -1,6 +1,11 @@
-import { Alert, CircularProgress, Stack, Typography } from '@mui/material';
+import { useState } from 'react';
+import { Alert, Box, Button, Stack, Tab, Tabs, Typography } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 import { useComponents } from '../hooks/useComponents.js';
 import { useComputers } from '../hooks/useComputers.js';
+import { useDebounce } from '../hooks/useDebounce.js';
+import { useFilteredList } from '../hooks/useFilteredList.js';
+import { useNotify } from '../hooks/useNotify.js';
 import { value_total } from '../utils/filters.js';
 import { COMPONENT_TYPES } from '../models/Component.js';
 import { COMPUTER_TYPES } from '../models/Computer.js';
@@ -42,14 +47,36 @@ function CatalogPanel({ kind, items, loading, error, types, filters, on_filters,
   );
 }
 
-/** PLACEHOLDER (proves the data flow). Dev B builds the real Catalog (tabs, filters, tables). */
 export default function Catalog() {
-  const { components, loading: loading_components, error: components_error } = useComponents();
-  const { computers, loading: loading_computers, error: computers_error } = useComputers();
+  const components_state = useComponents();
+  const computers_state = useComputers();
+  const { notify } = useNotify();
 
-  if (loading_components || loading_computers) return <CircularProgress />;
-  const error = components_error ?? computers_error;
-  if (error) return <Alert severity="error">{error.message}</Alert>;
+  const [tab, set_tab] = useState('components');
+  // one filter per tab: filtering one never touches the other
+  const [filters, set_filters] = useState({ components: INITIAL_FILTERS, computers: INITIAL_FILTERS });
+  const [form_state, set_form_state] = useState({ open: false, mode: 'components', item: null });
+  const [to_delete, set_to_delete] = useState(null); // { item, kind }
+  const [deleting, set_deleting] = useState(false);
+
+  const open_form = (item = null) => set_form_state({ open: true, mode: tab, item });
+  const close_form = () => set_form_state((current) => ({ ...current, open: false, item: null }));
+
+  const confirm_delete = async () => {
+    if (!to_delete) return;
+    const { item, kind } = to_delete;
+    const remove = kind === 'components' ? components_state.remove : computers_state.remove;
+    set_deleting(true);
+    try {
+      await remove(item.id);
+      notify(`"${item.name}" deleted`, 'success');
+      set_to_delete(null);
+    } catch (failure) {
+      notify(failure.message, 'error');
+    } finally {
+      set_deleting(false);
+    }
+  };
 
   return (
     <Stack spacing={3}>
