@@ -12,6 +12,7 @@ import { COMPUTER_TYPES } from '../models/Computer.js';
 import CatalogFilters from '../components/catalog/CatalogFilters.jsx';
 import StockSummary from '../components/catalog/StockSummary.jsx';
 import StockTable from '../components/catalog/StockTable.jsx';
+import { ProductFormDialog } from '../components/dialogs/ProductFormDialog.jsx';
 import ConfirmDialog from '../components/ui/ConfirmDialog.jsx';
 import EmptyState from '../components/ui/EmptyState.jsx';
 import ListSkeleton from '../components/ui/ListSkeleton.jsx';
@@ -98,6 +99,7 @@ export default function Catalog() {
 
       {tab === 'components' ? (
         <CatalogPanel
+          key="components"
           kind="components"
           items={components_state.components}
           loading={components_state.loading}
@@ -110,6 +112,7 @@ export default function Catalog() {
         />
       ) : (
         <CatalogPanel
+          key="computers"
           kind="computers"
           items={computers_state.computers}
           loading={computers_state.loading}
@@ -131,7 +134,7 @@ export default function Catalog() {
         onClose={() => set_to_delete(null)}
       />
 
-      {/* INTEGRACIÓN (Joel): <ProductFormDialog open={form_state.open} mode={form_state.mode} item={form_state.item} onClose={close_form} /> */}
+      <ProductFormDialog open={form_state.open} mode={form_state.mode} item={form_state.item} onClose={close_form} />
     </Stack>
   );
 }

@@ -66,9 +66,16 @@ export class Computer {
     return groups.filter((g) => !g.some((t) => present.has(t))).map((g) => g.join('/'));
   }
 
-  /** Open decision 9: swap this format (e.g. short "Ryzen 9 · RTX 4080 · 32 GB") in ONE place. */
+  /**
+   * Short description (decision 9): processor · GPU · RAM · SSD (HDD if there is no SSD).
+   * Parts that are not present are skipped, e.g. an office PC has no GPU.
+   */
   static build_description(components) {
-    return components.map((c) => `${c.type.toUpperCase()}: ${c.name}`).join(' | ');
+    const first = (...types) => components.find((c) => types.includes(c.type));
+    return [first('processor'), first('gpu'), first('ram'), first('ssd', 'hdd')]
+      .filter(Boolean)
+      .map((c) => c.name)
+      .join(' · ');
   }
 
   /**
