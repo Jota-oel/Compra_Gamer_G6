@@ -27,6 +27,11 @@ const BRAND = {
 /** Alto de la barra de navegación: lo usa el scroll a secciones (#gaming, #office). */
 export const NAVBAR_HEIGHT = 72;
 
+/** Color de acento (clave de la paleta) de cada tipo de computer: gaming = rosa, office = cian. */
+export function accent_for_type(type) {
+  return type === 'gaming' ? 'secondary' : 'primary';
+}
+
 export const theme = createTheme({
   palette: {
     mode: 'dark',

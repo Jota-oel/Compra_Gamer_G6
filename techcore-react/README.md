@@ -39,12 +39,12 @@ Variables de entorno: copiar `.env.example` a `.env` (solo hace falta para cambi
 ```
 src
 ├── api          http.js (único fetch) · Components.js · Computers.js · Orders.js · Users.js · Session.js · Carts.js · db/
-├── components   auth/ (ProtectedRoute) · home/ · ui/ · (catalog, cart, dialogs: a crear por cada dueño)
+├── components   auth/ (ProtectedRoute) · home/ (Hero, ShowcaseSection) · ui/ (ComputerCard) · (catalog, cart, dialogs: a crear por cada dueño)
 ├── context      objetos de contexto (uno por recurso)
 ├── hooks        useAuth · useComponents · useComputers · useCart · useNotify · useDebounce · useFilteredList
 ├── layout       MainLayout · Navbar · Footer (MX-1)
 ├── models       Component · Computer (reglas de negocio, solo para validar)
-├── pages        Home · Catalog · Login (placeholders) · NotFound
+├── pages        Home (MX-2) · Catalog · Login (placeholders) · NotFound
 ├── provider     AppProviders y un provider por recurso
 ├── services     inventory.js (operaciones que tocan varios recursos)
 ├── theme        theme.js (tema oscuro con los colores de marca, MX-1)
