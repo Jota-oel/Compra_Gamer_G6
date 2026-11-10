@@ -1,14 +1,18 @@
-import { useState } from 'react';
-import { Navigate, useLocation } from 'react-router';
-import { Alert, Button, Stack, TextField, Typography } from '@mui/material';
+import { Box, Button, CircularProgress, Paper, Stack, Typography } from '@mui/material';
+import { useLocation, useNavigate } from 'react-router';
+import { LoginForm } from '../components/auth/LoginForm.jsx';
+import { LogoutButton } from '../components/auth/LogoutButton.jsx';
 import { useAuth } from '../hooks/useAuth.js';
 
-/** PLACEHOLDER but functional. Dev C replaces it with LoginForm (components/auth) + real styling. */
+/**
+ * /login. ProtectedRoute sends people here with location.state.from, so after logging in they go back
+ * to where they wanted (e.g. /catalog) or Home. If someone already has a session they see who they are
+ * and can continue or log out (instead of being bounced away).
+ */
 export default function Login() {
-  const { isAuthenticated, loading, login } = useAuth();
+  const { ready, isAuthenticated, user } = useAuth();
   const location = useLocation();
-  const [form, setForm] = useState({ email: '', password: '' });
-  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const from = location.state?.from;
   // Where they wanted to go; otherwise admins land on the catalog and everyone else on Home.
@@ -18,15 +22,13 @@ export default function Login() {
   };
   const go_on = (person = user) => navigate(destination_for(person), { replace: true });
 
-  const handle_submit = async (event) => {
-    event.preventDefault();
-    setError('');
-    try {
-      await login(form); // the redirect above happens on the next render
-    } catch (failure) {
-      setError(failure.message);
-    }
-  };
+  if (!ready) {
+    return (
+      <Box sx={{ display: 'grid', placeItems: 'center', py: 8 }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   return (
     <Box sx={{ display: 'grid', placeItems: 'center', py: { xs: 3, md: 8 } }}>
