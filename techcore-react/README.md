@@ -85,7 +85,7 @@ Reglas de uso:
 - **Decisión 2**: carrito y sesión en el JSON, sin `localStorage` (implementado así).
 - **Decisión 3**: el checkout crea una `order` y descuenta stock (implementado así).
 - **Decisión 4**: `/catalog` solo para `admin`; `users` con forma `{ id, name, email, password, role }`. Si ya existe un `api/Users.js` propio, fusionarlo con el de este proyecto.
-- **Decisión 9**: la descripción de una computer usa el formato largo con etiquetas. Se cambia en un solo lugar: `Computer.build_description`.
+- **Decisión 9**: la descripción de una computer usa el formato corto `procesador · GPU · RAM · SSD` (HDD si no hay SSD; se omiten las piezas ausentes). Se cambia en un solo lugar: `Computer.build_description`.
 
 ## Problemas frecuentes
 
