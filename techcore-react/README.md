@@ -42,12 +42,12 @@ src
 ├── components   auth/ (ProtectedRoute) · home/ · ui/ · (catalog, cart, dialogs: a crear por cada dueño)
 ├── context      objetos de contexto (uno por recurso)
 ├── hooks        useAuth · useComponents · useComputers · useCart · useNotify · useDebounce · useFilteredList
-├── layout       MainLayout (placeholder: lo reemplaza Dev A)
+├── layout       MainLayout · Navbar · Footer (MX-1)
 ├── models       Component · Computer (reglas de negocio, solo para validar)
 ├── pages        Home · Catalog · Login (placeholders) · NotFound
 ├── provider     AppProviders y un provider por recurso
 ├── services     inventory.js (operaciones que tocan varios recursos)
-├── theme        theme.js (esqueleto: lo continúa Dev A)
+├── theme        theme.js (tema oscuro con los colores de marca, MX-1)
 └── utils        filters · format · id
 ```
 
