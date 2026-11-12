@@ -39,16 +39,16 @@ Variables de entorno: copiar `.env.example` a `.env` (solo hace falta para cambi
 ```
 src
 ├── api          http.js (único fetch) · Components.js · Computers.js · Orders.js · Users.js · Session.js · Carts.js · db/
-├── components   auth/ (ProtectedRoute) · home/ · ui/ · (catalog, cart, dialogs: a crear por cada dueño)
+├── components   auth/ (LoginForm, LogoutButton, ProtectedRoute) · cart/ · catalog/ · dialogs/ · home/ (Hero, ShowcaseSection, ProductCarousel) · ui/ (ComputerCard, ConfirmDialog, EmptyState, ListSkeleton, QuantityInput)
 ├── context      objetos de contexto (uno por recurso)
 ├── hooks        useAuth · useComponents · useComputers · useCart · useNotify · useDebounce · useFilteredList
-├── layout       MainLayout (placeholder: lo reemplaza Dev A)
+├── layout       MainLayout · Navbar · Footer (MX-1)
 ├── models       Component · Computer (reglas de negocio, solo para validar)
-├── pages        Home · Catalog · Login (placeholders) · NotFound
+├── pages        Home (MX-2) · Catalog · Login · NotFound
 ├── provider     AppProviders y un provider por recurso
 ├── services     inventory.js (operaciones que tocan varios recursos)
-├── theme        theme.js (esqueleto: lo continúa Dev A)
-└── utils        filters · format · id
+├── theme        theme.js (tema oscuro con los colores de marca, MX-1)
+└── utils        filters · format · id · carousel (MX-3)
 ```
 
 ## Contratos de los hooks (no cambiar sin avisar al líder)
@@ -85,7 +85,7 @@ Reglas de uso:
 - **Decisión 2**: carrito y sesión en el JSON, sin `localStorage` (implementado así).
 - **Decisión 3**: el checkout crea una `order` y descuenta stock (implementado así).
 - **Decisión 4**: `/catalog` solo para `admin`; `users` con forma `{ id, name, email, password, role }`. Si ya existe un `api/Users.js` propio, fusionarlo con el de este proyecto.
-- **Decisión 9**: la descripción de una computer usa el formato largo con etiquetas. Se cambia en un solo lugar: `Computer.build_description`.
+- **Decisión 9**: la descripción de una computer usa el formato corto `procesador · GPU · RAM · SSD` (HDD si no hay SSD; se omiten las piezas ausentes). Se cambia en un solo lugar: `Computer.build_description`.
 
 ## Problemas frecuentes
 

@@ -15,8 +15,12 @@ export default function Login() {
   const navigate = useNavigate();
 
   const from = location.state?.from;
-  const destination = from ? `${from.pathname}${from.search ?? ''}` : '/';
-  const go_on = () => navigate(destination, { replace: true });
+  // Where they wanted to go; otherwise admins land on the catalog and everyone else on Home.
+  const destination_for = (person) => {
+    if (from) return `${from.pathname}${from.search ?? ''}`;
+    return person?.role === 'admin' ? '/catalog' : '/';
+  };
+  const go_on = (person = user) => navigate(destination_for(person), { replace: true });
 
   if (!ready) {
     return (
@@ -36,7 +40,7 @@ export default function Login() {
               {user.name} ({user.email})
             </Typography>
             <Stack direction="row" spacing={1}>
-              <Button variant="contained" onClick={go_on}>Continue</Button>
+              <Button variant="contained" onClick={() => go_on(user)}>Continue</Button>
               <LogoutButton to={null} variant="outlined">Log out</LogoutButton>
             </Stack>
           </Stack>
@@ -48,7 +52,7 @@ export default function Login() {
                 {from ? 'Log in to continue to that page.' : 'Log in to your TechCore account.'}
               </Typography>
             </Box>
-            <LoginForm onSuccess={go_on} />
+            <LoginForm onSuccess={(person) => go_on(person)} />
           </Stack>
         )}
       </Paper>
