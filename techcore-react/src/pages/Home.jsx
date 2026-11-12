@@ -1,24 +1,31 @@
-import { Alert, CircularProgress, Stack, Typography } from '@mui/material';
+import { useState } from 'react';
+import { Box } from '@mui/material';
 import { useComputers } from '../hooks/useComputers.js';
 import { useFilteredList } from '../hooks/useFilteredList.js';
+import { Hero } from '../components/home/Hero.jsx';
+import { ShowcaseSection } from '../components/home/ShowcaseSection.jsx';
 
 /**
- * PLACEHOLDER (proves the data flow). Dev A builds the real Home:
- * Hero + <ShowcaseSection type="gaming" /> + <ShowcaseSection type="office" />.
+ * Home (MX-2). Dueño: Maxi. One page: Hero + sección Gaming + sección Office.
+ * Guarda `selected_computer`: Buy deja ahí la computer elegida (el detalle lo conecta Joel).
  */
 export default function Home() {
-  const { computers, loading, error } = useComputers();
+  const { computers, loading, error, reload } = useComputers();
   const gaming = useFilteredList(computers, { type: 'gaming' });
   const office = useFilteredList(computers, { type: 'office' });
+  const [selected_computer, setSelectedComputer] = useState(null);
 
-  if (loading) return <CircularProgress />;
-  if (error) return <Alert severity="error">{error.message}</Alert>;
+  const handle_buy = (computer) => setSelectedComputer(computer);
+
+  const section_props = { loading, error, onRetry: reload, onBuy: handle_buy };
 
   return (
-    <Stack spacing={1}>
-      <Typography variant="h4">Home (placeholder)</Typography>
-      <Typography>{gaming.length} gaming computers: {gaming.map((pc) => pc.name).join(', ')}</Typography>
-      <Typography>{office.length} office computers: {office.map((pc) => pc.name).join(', ')}</Typography>
-    </Stack>
+    <Box data-selected-computer={selected_computer?.id ?? ''}>
+      <Hero />
+      <ShowcaseSection type="gaming" computers={gaming} {...section_props} />
+      <ShowcaseSection type="office" computers={office} {...section_props} />
+
+      {/* INTEGRACIÓN (Joel): <ComputerDetailDialog open={Boolean(selected_computer)} computer={selected_computer} onClose={() => setSelectedComputer(null)} /> */}
+    </Box>
   );
 }

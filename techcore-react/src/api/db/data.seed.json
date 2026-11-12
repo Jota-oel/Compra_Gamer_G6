@@ -122,7 +122,7 @@
     {
       "id": "PC-2001",
       "name": "TechCore Titan",
-      "description": "PROCESSOR: Ryzen 9 7950X | MOTHERBOARD: ASUS ROG X670E | RAM: Corsair 32 GB DDR5 | SSD: Samsung 990 Pro 1 TB | GPU: GeForce RTX 4080 | PSU: Corsair RM1000x | CASE: NZXT H7 Flow",
+      "description": "Ryzen 9 7950X · GeForce RTX 4080 · Corsair 32 GB DDR5 · Samsung 990 Pro 1 TB",
       "price": 4299.99,
       "stock": 4,
       "url": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80",
@@ -175,7 +175,7 @@
     {
       "id": "PC-2002",
       "name": "Core Raptor-X Custom PC",
-      "description": "PROCESSOR: Ryzen 9 7950X | MOTHERBOARD: ASUS ROG X670E | RAM: Corsair 32 GB DDR5 | SSD: Samsung 990 Pro 1 TB | GPU: GeForce RTX 4080 | PSU: Corsair RM1000x | CASE: NZXT H7 Flow",
+      "description": "Ryzen 9 7950X · GeForce RTX 4080 · Corsair 32 GB DDR5 · Samsung 990 Pro 1 TB",
       "price": 2899,
       "stock": 3,
       "url": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=600&q=80",
@@ -228,7 +228,7 @@
     {
       "id": "PC-2003",
       "name": "Vortex RTX Pro",
-      "description": "PROCESSOR: Ryzen 9 7950X | MOTHERBOARD: ASUS ROG X670E | RAM: Corsair 32 GB DDR5 | SSD: Samsung 990 Pro 1 TB | GPU: GeForce RTX 4080 | PSU: Corsair RM1000x | CASE: NZXT H7 Flow",
+      "description": "Ryzen 9 7950X · GeForce RTX 4080 · Corsair 32 GB DDR5 · Samsung 990 Pro 1 TB",
       "price": 3499.99,
       "stock": 3,
       "url": "https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=600&q=80",
@@ -281,7 +281,7 @@
     {
       "id": "PC-2004",
       "name": "Nova Streamer",
-      "description": "PROCESSOR: Ryzen 9 7950X | MOTHERBOARD: ASUS ROG X670E | RAM: Corsair 32 GB DDR5 | SSD: Samsung 990 Pro 1 TB | GPU: GeForce RTX 4080 | PSU: Corsair RM1000x | CASE: NZXT H7 Flow",
+      "description": "Ryzen 9 7950X · GeForce RTX 4080 · Corsair 32 GB DDR5 · Samsung 990 Pro 1 TB",
       "price": 3199,
       "stock": 2,
       "url": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80",
@@ -334,7 +334,7 @@
     {
       "id": "PC-2005",
       "name": "TechCore Office Pro",
-      "description": "PROCESSOR: Core i5-13400 | MOTHERBOARD: MSI PRO B660M | RAM: Kingston 16 GB DDR4 | SSD: Samsung 990 Pro 1 TB | PSU: EVGA 500 W | CASE: Cooler Master Q300L",
+      "description": "Core i5-13400 · Kingston 16 GB DDR4 · Samsung 990 Pro 1 TB",
       "price": 749.99,
       "stock": 8,
       "url": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=600&q=80",
@@ -381,7 +381,7 @@
     {
       "id": "PC-2006",
       "name": "Office Storage Plus",
-      "description": "PROCESSOR: Core i5-13400 | MOTHERBOARD: MSI PRO B660M | RAM: Kingston 16 GB DDR4 | HDD: Seagate Barracuda 2 TB | PSU: EVGA 500 W | CASE: Cooler Master Q300L",
+      "description": "Core i5-13400 · Kingston 16 GB DDR4 · Seagate Barracuda 2 TB",
       "price": 649,
       "stock": 5,
       "url": "https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=600&q=80",
@@ -428,7 +428,7 @@
     {
       "id": "PC-2007",
       "name": "Workforce Slim",
-      "description": "PROCESSOR: Core i5-13400 | MOTHERBOARD: MSI PRO B660M | RAM: Kingston 16 GB DDR4 | SSD: Samsung 990 Pro 1 TB | PSU: EVGA 500 W | CASE: Cooler Master Q300L",
+      "description": "Core i5-13400 · Kingston 16 GB DDR4 · Samsung 990 Pro 1 TB",
       "price": 599.99,
       "stock": 6,
       "url": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80",
@@ -475,7 +475,7 @@
     {
       "id": "PC-2008",
       "name": "Workforce Elite",
-      "description": "PROCESSOR: Core i5-13400 | MOTHERBOARD: MSI PRO B660M | RAM: Kingston 16 GB DDR4 | SSD: Samsung 990 Pro 1 TB | PSU: EVGA 500 W | CASE: Cooler Master Q300L",
+      "description": "Core i5-13400 · Kingston 16 GB DDR4 · Samsung 990 Pro 1 TB",
       "price": 899,
       "stock": 4,
       "url": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=600&q=80",
