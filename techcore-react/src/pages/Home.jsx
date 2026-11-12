@@ -4,10 +4,11 @@ import { useComputers } from '../hooks/useComputers.js';
 import { useFilteredList } from '../hooks/useFilteredList.js';
 import { Hero } from '../components/home/Hero.jsx';
 import { ShowcaseSection } from '../components/home/ShowcaseSection.jsx';
+import { ComputerDetailDialog } from '../components/dialogs/ComputerDetailDialog.jsx';
 
 /**
  * Home (MX-2). Dueño: Maxi. One page: Hero + sección Gaming + sección Office.
- * Guarda `selected_computer`: Buy deja ahí la computer elegida (el detalle lo conecta Joel).
+ * Guarda `selected_computer`: Buy deja ahí la computer elegida (el detalle lo abre <ComputerDetailDialog />).
  */
 export default function Home() {
   const { computers, loading, error, reload } = useComputers();
@@ -25,7 +26,11 @@ export default function Home() {
       <ShowcaseSection type="gaming" computers={gaming} {...section_props} />
       <ShowcaseSection type="office" computers={office} {...section_props} />
 
-      {/* INTEGRACIÓN (Joel): <ComputerDetailDialog open={Boolean(selected_computer)} computer={selected_computer} onClose={() => setSelectedComputer(null)} /> */}
+      <ComputerDetailDialog
+        open={Boolean(selected_computer)}
+        computer={selected_computer}
+        onClose={() => setSelectedComputer(null)}
+      />
     </Box>
   );
 }
