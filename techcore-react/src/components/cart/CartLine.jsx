@@ -10,7 +10,7 @@ import { QuantityInput } from '../ui/QuantityInput.jsx';
 export function CartLine({ line, stock, disabled = false, onQuantityChange, onRemove }) {
   return (
     <Paper component="li" variant="outlined" sx={{ p: 1.5, listStyle: 'none' }}>
-      <Stack direction="row" spacing={2} alignItems="center" useFlexGap sx={{ flexWrap: 'wrap' }}>
+      <Stack direction="row" spacing={2} useFlexGap sx={{ alignItems: 'center', flexWrap: 'wrap' }}>
         <Box sx={{ width: 64, height: 64, flexShrink: 0, overflow: 'hidden', borderRadius: 1, bgcolor: 'action.hover' }}>
           {line.url && (
             <Box

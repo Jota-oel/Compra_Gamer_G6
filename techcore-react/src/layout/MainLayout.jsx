@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router';
 import { Box, Container } from '@mui/material';
 import { Navbar } from './Navbar.jsx';
 import { Footer } from './Footer.jsx';
+import { CartDialog } from '../components/cart/CartDialog.jsx';
 
 /**
  * Lleva la página a la sección del hash (/#gaming) o arriba del todo al cambiar de ruta.
@@ -53,7 +54,7 @@ export function MainLayout() {
 
       <Footer />
 
-      {/* INTEGRACIÓN (Joel): <CartDialog open={cart_open} onClose={() => setCartOpen(false)} /> */}
+      <CartDialog open={cart_open} onClose={() => setCartOpen(false)} />
     </Box>
   );
 }

@@ -80,14 +80,23 @@ export default function Catalog() {
 
   return (
     <Stack spacing={3}>
-      <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems={{ sm: 'center' }} spacing={2}>
+      <Stack
+        direction={{ xs: 'column', sm: 'row' }}
+        spacing={2}
+        sx={{ justifyContent: 'space-between', alignItems: { xs: 'flex-start', sm: 'center' } }}
+      >
         <Box>
           <Typography variant="h4" component="h1">Component Management</Typography>
           <Typography color="text.secondary">
             Manage the catalog, stock, and costs of components and computers.
           </Typography>
         </Box>
-        <Button variant="contained" startIcon={<AddIcon />} onClick={() => open_form(null)}>
+        <Button
+          variant="contained"
+          startIcon={<AddIcon />}
+          onClick={() => open_form(null)}
+          sx={{ flexShrink: 0, whiteSpace: 'nowrap' }}
+        >
           Create new product
         </Button>
       </Stack>

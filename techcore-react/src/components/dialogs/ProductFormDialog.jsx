@@ -192,7 +192,7 @@ function ProductForm({ mode, item, onClose }) {
           {is_computer && is_edit && (
             <Box>
               <Typography variant="subtitle2" gutterBottom>Parts (read-only)</Typography>
-              <Stack direction="row" useFlexGap spacing={1} flexWrap="wrap">
+              <Stack direction="row" useFlexGap spacing={1} sx={{ flexWrap: 'wrap' }}>
                 {item.components.map((part) => (
                   <Chip key={part.id} size="small" label={`${type_label(part.type)}: ${part.name}`} />
                 ))}

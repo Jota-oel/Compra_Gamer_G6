@@ -84,7 +84,7 @@ function DetailContent({ computer: selected, onClose }) {
             </List>
           </Box>
 
-          <Stack direction="row" justifyContent="space-between" alignItems="flex-end">
+          <Stack direction="row" sx={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
             <Box>
               <Typography variant="caption" color="text.secondary">Price</Typography>
               <Typography variant="h5" component="p">{format_price(computer.price)}</Typography>
@@ -106,7 +106,7 @@ function DetailContent({ computer: selected, onClose }) {
             </Typography>
           )}
 
-          <Stack direction="row" spacing={2} alignItems="center" justifyContent="space-between">
+          <Stack direction="row" spacing={2} sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
             <Stack spacing={0.5}>
               <Typography variant="body2" color="text.secondary">Quantity</Typography>
               <QuantityInput
