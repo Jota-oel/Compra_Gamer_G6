@@ -31,7 +31,7 @@ export function QuantityInput({ value, min = 1, max = Infinity, onChange, disabl
   };
 
   return (
-    <Stack direction="row" spacing={0.5} alignItems="center">
+    <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
       <IconButton
         size="small"
         aria-label="Decrease quantity"

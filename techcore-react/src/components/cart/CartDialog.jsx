@@ -86,7 +86,7 @@ export function CartDialog({ open, onClose }) {
 
       <DialogContent dividers>
         {is_empty ? (
-          <Stack spacing={2} alignItems="center" sx={{ py: 6, textAlign: 'center' }}>
+          <Stack spacing={2} sx={{ alignItems: 'center', py: 6, textAlign: 'center' }}>
             <Typography variant="h6" component="p">Your cart is empty</Typography>
             <Typography color="text.secondary">
               Pick a computer from Gaming or Office and it will show up here.
@@ -129,7 +129,7 @@ export function CartDialog({ open, onClose }) {
       {!is_empty && (
         <DialogActions sx={{ px: 3, py: 2, justifyContent: 'space-between', flexWrap: 'wrap', gap: 1 }}>
           <Button color="inherit" onClick={() => guard(clear)} disabled={locked}>Clear cart</Button>
-          <Stack direction="row" spacing={2} alignItems="center">
+          <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
             <Typography>
               Total <strong>{format_price(total)}</strong>
             </Typography>
